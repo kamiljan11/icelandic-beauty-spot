@@ -1,6 +1,15 @@
 import landscapeImg from "@/assets/iceland-landscape.jpg";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 const About = () => {
+  const { t } = useLanguage();
+  const stats = [
+    { value: "15+", label: t(translations.about.stats.years) },
+    { value: "2000+", label: t(translations.about.stats.clients) },
+    { value: "100%", label: t(translations.about.stats.natural) },
+  ];
+
   return (
     <section id="about" className="py-24 md:py-32 bg-card">
       <div className="max-w-6xl mx-auto px-6">
@@ -8,7 +17,7 @@ const About = () => {
           <div className="overflow-hidden rounded-sm">
             <img
               src={landscapeImg}
-              alt="Íslensku landslag"
+              alt="Iceland landscape"
               width={800}
               height={800}
               loading="lazy"
@@ -18,31 +27,22 @@ const About = () => {
 
           <div>
             <p className="font-body text-xs tracking-[0.3em] uppercase text-primary mb-3">
-              Um okkur
+              {t(translations.about.subtitle)}
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-light text-foreground mb-6">
-              Innblásin af
+              {t(translations.about.title1)}
               <br />
-              <span className="italic">íslenskri náttúru</span>
+              <span className="italic">{t(translations.about.title2)}</span>
             </h2>
             <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
-              Eldfjall Beauty var stofnað af Sigríði Jónsdóttur, sem hefur yfir 15 ára
-              reynslu í fagurfræði og húðvörumeðferðum. Hún lauk námi frá
-              Snyrtiskólanum í Reykjavík og hefur sérhæft sig í náttúrulegum
-              meðferðum sem nýta kraft íslenskrar náttúru.
+              {t(translations.about.p1)}
             </p>
             <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8">
-              Stúdíóið okkar er staðsett í hjarta Reykjavíkur og býður
-              friðsælt umhverfi þar sem hægt er að slaka á og njóta meðferða
-              sem byggja á jarðhitavatni, eldfjallasteinefnum og lífrænni íslenskri flóru.
+              {t(translations.about.p2)}
             </p>
 
             <div className="grid grid-cols-3 gap-6">
-              {[
-                { value: "15+", label: "Ára reynsla" },
-                { value: "2000+", label: "Ánægðir viðskiptavinir" },
-                { value: "100%", label: "Náttúruleg efni" },
-              ].map((stat, i) => (
+              {stats.map((stat, i) => (
                 <div key={i} className="text-center">
                   <p className="font-display text-3xl font-medium text-primary">
                     {stat.value}
