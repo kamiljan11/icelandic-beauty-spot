@@ -1,4 +1,9 @@
+import { useLanguage } from "@/i18n/LanguageContext";
+import { translations } from "@/i18n/translations";
+
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-volcanic py-12">
       <div className="max-w-6xl mx-auto px-6">
@@ -7,7 +12,7 @@ const Footer = () => {
             Eldfjall <span className="text-sage-light">Beauty</span>
           </p>
           <p className="font-body text-xs text-cream/50">
-            © 2026 Eldfjall Beauty. Allur réttur áskilinn.
+            {t(translations.footer.rights)}
           </p>
         </div>
       </div>
