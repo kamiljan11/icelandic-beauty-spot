@@ -9,78 +9,78 @@ const Contact = () => {
   const c = translations.contact;
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-background">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="contact" className="py-16 md:py-32 bg-background">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
           variants={fadeInUp}
         >
-          <p className="font-body text-xs tracking-[0.3em] uppercase text-primary mb-3">
+          <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-primary mb-2 md:mb-3">
             {t(c.subtitle)}
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl font-light text-foreground">
             {t(c.title)}
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           <motion.div
-            className="space-y-8"
+            className="space-y-5 md:space-y-8"
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
             variants={slideInLeft}
           >
-            <div className="flex items-start gap-4">
-              <MapPin size={20} className="text-primary mt-0.5 shrink-0" />
+            <div className="flex items-start gap-3 md:gap-4">
+              <MapPin size={18} className="text-primary mt-0.5 shrink-0" />
               <div>
-                <p className="font-body text-sm font-semibold text-foreground">{t(c.location)}</p>
-                <p className="font-body text-sm text-muted-foreground">
+                <p className="font-body text-xs md:text-sm font-semibold text-foreground">{t(c.location)}</p>
+                <p className="font-body text-xs md:text-sm text-muted-foreground">
                   Laugavegur 42, 101 Reykjavík, Ísland
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <Phone size={20} className="text-primary mt-0.5 shrink-0" />
+            <div className="flex items-start gap-3 md:gap-4">
+              <Phone size={18} className="text-primary mt-0.5 shrink-0" />
               <div>
-                <p className="font-body text-sm font-semibold text-foreground">{t(c.phone)}</p>
-                <p className="font-body text-sm text-muted-foreground">+354 555 1234</p>
+                <p className="font-body text-xs md:text-sm font-semibold text-foreground">{t(c.phone)}</p>
+                <p className="font-body text-xs md:text-sm text-muted-foreground">+354 555 1234</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <Mail size={20} className="text-primary mt-0.5 shrink-0" />
+            <div className="flex items-start gap-3 md:gap-4">
+              <Mail size={18} className="text-primary mt-0.5 shrink-0" />
               <div>
-                <p className="font-body text-sm font-semibold text-foreground">{t(c.email)}</p>
-                <p className="font-body text-sm text-muted-foreground">info@eldfjallbeauty.is</p>
+                <p className="font-body text-xs md:text-sm font-semibold text-foreground">{t(c.email)}</p>
+                <p className="font-body text-xs md:text-sm text-muted-foreground">info@eldfjallbeauty.is</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <Clock size={20} className="text-primary mt-0.5 shrink-0" />
+            <div className="flex items-start gap-3 md:gap-4">
+              <Clock size={18} className="text-primary mt-0.5 shrink-0" />
               <div>
-                <p className="font-body text-sm font-semibold text-foreground">{t(c.hours)}</p>
-                <p className="font-body text-sm text-muted-foreground whitespace-pre-line">
+                <p className="font-body text-xs md:text-sm font-semibold text-foreground">{t(c.hours)}</p>
+                <p className="font-body text-xs md:text-sm text-muted-foreground whitespace-pre-line">
                   {t(c.hoursDetail)}
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <Instagram size={20} className="text-primary mt-0.5 shrink-0" />
+            <div className="flex items-start gap-3 md:gap-4">
+              <Instagram size={18} className="text-primary mt-0.5 shrink-0" />
               <div>
-                <p className="font-body text-sm font-semibold text-foreground">Instagram</p>
-                <p className="font-body text-sm text-muted-foreground">@eldfjallbeauty</p>
+                <p className="font-body text-xs md:text-sm font-semibold text-foreground">Instagram</p>
+                <p className="font-body text-xs md:text-sm text-muted-foreground">@eldfjallbeauty</p>
               </div>
             </div>
           </motion.div>
 
           <motion.div
-            className="bg-card rounded-sm overflow-hidden border border-border h-80 md:h-auto"
+            className="bg-card rounded-sm overflow-hidden border border-border h-56 md:h-auto"
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
@@ -91,7 +91,7 @@ const Contact = () => {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1742.5!2d-21.9!3d64.145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNjTCsDA4JzQyLjAiTiAyMcKwNTQnMDAuMCJX!5e0!3m2!1sis!2sis!4v1600000000000"
               width="100%"
               height="100%"
-              style={{ border: 0, minHeight: 320 }}
+              style={{ border: 0, minHeight: 224 }}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />

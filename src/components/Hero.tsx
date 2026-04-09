@@ -16,7 +16,7 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section id="home" ref={ref} className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" ref={ref} className="relative min-h-[85vh] md:min-h-screen flex items-center overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y }}>
         <img
           src={heroImage}
@@ -29,7 +29,7 @@ const Hero = () => {
       </motion.div>
 
       <motion.div
-        className="relative z-10 max-w-6xl mx-auto px-6 py-32"
+        className="relative z-10 max-w-6xl mx-auto px-5 md:px-6 py-24 md:py-32"
         style={{ opacity }}
       >
         <motion.div
@@ -40,13 +40,13 @@ const Hero = () => {
         >
           <motion.p
             variants={fadeInUp}
-            className="font-body text-sm tracking-[0.3em] uppercase text-frost mb-6"
+            className="font-body text-[10px] md:text-sm tracking-[0.3em] uppercase text-frost mb-4 md:mb-6"
           >
             {t(translations.hero.subtitle)}
           </motion.p>
           <motion.h1
             variants={fadeInUp}
-            className="font-display text-5xl md:text-7xl font-light text-cream leading-tight mb-6"
+            className="font-display text-[2.5rem] leading-[1.1] md:text-7xl font-light text-cream md:leading-tight mb-4 md:mb-6"
           >
             {t(translations.hero.title1)}
             <br />
@@ -54,25 +54,25 @@ const Hero = () => {
           </motion.h1>
           <motion.p
             variants={fadeInUp}
-            className="font-body text-base text-cream/80 leading-relaxed max-w-md mb-10"
+            className="font-body text-sm md:text-base text-cream/80 leading-relaxed max-w-md mb-8 md:mb-10"
           >
             {t(translations.hero.description)}
           </motion.p>
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3 md:gap-4">
             <a
               href="#booking"
-              className="bg-primary text-primary-foreground px-8 py-3.5 rounded-sm font-body text-sm tracking-wide hover:opacity-90 transition-opacity text-center"
+              className="bg-primary text-primary-foreground px-8 py-3 md:py-3.5 rounded-sm font-body text-sm tracking-wide hover:opacity-90 transition-opacity text-center"
             >
               {t(translations.hero.cta)}
             </a>
             <a
               href="#services"
-              className="border border-cream/30 text-cream px-8 py-3.5 rounded-sm font-body text-sm tracking-wide hover:bg-cream/10 transition-colors text-center"
+              className="border border-cream/30 text-cream px-8 py-3 md:py-3.5 rounded-sm font-body text-sm tracking-wide hover:bg-cream/10 transition-colors text-center"
             >
               {t(translations.hero.seeServices)}
             </a>
           </motion.div>
-          <motion.p variants={fadeInUp} className="font-body text-xs text-cream/50 mt-6 flex items-center gap-2">
+          <motion.p variants={fadeInUp} className="font-body text-[10px] md:text-xs text-cream/50 mt-5 md:mt-6 flex items-center gap-2">
             <span className="text-frost">✓</span>
             {t({
               en: "Payment on-site · No deposit required · Free consultation",

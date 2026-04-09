@@ -43,25 +43,25 @@ const BeforeAfter = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-card">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-16 md:py-32 bg-card">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
           variants={fadeInUp}
         >
-          <p className="font-body text-xs tracking-[0.3em] uppercase text-primary mb-3">
+          <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-primary mb-2 md:mb-3">
             {t(translations.subtitle)}
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl font-light text-foreground">
             {t(translations.title)}
           </h2>
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-2 gap-12"
+          className="grid md:grid-cols-2 gap-6 md:gap-12"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
@@ -71,7 +71,7 @@ const BeforeAfter = () => {
             const pos = sliderPos[i] ?? 50;
             return (
               <motion.div key={i} variants={fadeInUp} className="group">
-                <div className="relative overflow-hidden rounded-sm aspect-square mb-4">
+                <div className="relative overflow-hidden rounded-sm aspect-square mb-3 md:mb-4">
                   <img
                     src={item.after}
                     alt={`${t(item.title)} - after`}
@@ -80,10 +80,7 @@ const BeforeAfter = () => {
                     height={640}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
-                  <div
-                    className="absolute inset-0 overflow-hidden"
-                    style={{ width: `${pos}%` }}
-                  >
+                  <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
                     <img
                       src={item.before}
                       alt={`${t(item.title)} - before`}
@@ -94,12 +91,9 @@ const BeforeAfter = () => {
                       style={{ width: `${100 / (pos / 100)}%`, maxWidth: "none" }}
                     />
                   </div>
-                  <div
-                    className="absolute top-0 bottom-0 w-0.5 bg-cream z-10"
-                    style={{ left: `${pos}%` }}
-                  >
-                    <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-cream rounded-full flex items-center justify-center shadow-lg">
-                      <span className="text-volcanic text-xs font-bold">⇔</span>
+                  <div className="absolute top-0 bottom-0 w-0.5 bg-cream z-10" style={{ left: `${pos}%` }}>
+                    <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-7 h-7 md:w-8 md:h-8 bg-cream rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-volcanic text-[10px] md:text-xs font-bold">⇔</span>
                     </div>
                   </div>
                   <input
@@ -111,17 +105,17 @@ const BeforeAfter = () => {
                     className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
                     aria-label="Before/After slider"
                   />
-                  <div className="absolute top-3 left-3 bg-volcanic/70 text-cream text-xs font-body px-2 py-1 rounded-sm">
+                  <div className="absolute top-2 left-2 md:top-3 md:left-3 bg-volcanic/70 text-cream text-[10px] md:text-xs font-body px-2 py-0.5 md:py-1 rounded-sm">
                     Before
                   </div>
-                  <div className="absolute top-3 right-3 bg-primary/70 text-primary-foreground text-xs font-body px-2 py-1 rounded-sm">
+                  <div className="absolute top-2 right-2 md:top-3 md:right-3 bg-primary/70 text-primary-foreground text-[10px] md:text-xs font-body px-2 py-0.5 md:py-1 rounded-sm">
                     After
                   </div>
                 </div>
-                <h3 className="font-display text-xl font-medium text-foreground mb-1">
+                <h3 className="font-display text-lg md:text-xl font-medium text-foreground mb-1">
                   {t(item.title)}
                 </h3>
-                <p className="font-body text-sm text-muted-foreground">
+                <p className="font-body text-xs md:text-sm text-muted-foreground">
                   {t(item.description)}
                 </p>
               </motion.div>

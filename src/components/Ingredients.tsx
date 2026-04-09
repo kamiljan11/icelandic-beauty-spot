@@ -7,16 +7,8 @@ import mossImg from "@/assets/ingredient-moss.jpg";
 import herbsImg from "@/assets/ingredient-herbs.jpg";
 
 const translations = {
-  subtitle: {
-    en: "OUR SCIENCE",
-    is: "OKKAR VÍSINDI",
-    pl: "NASZA NAUKA",
-  },
-  title: {
-    en: "Powered by Icelandic nature",
-    is: "Knúin af íslenskri náttúru",
-    pl: "Siła islandzkiej natury",
-  },
+  subtitle: { en: "OUR SCIENCE", is: "OKKAR VÍSINDI", pl: "NASZA NAUKA" },
+  title: { en: "Powered by Icelandic nature", is: "Knúin af íslenskri náttúru", pl: "Siła islandzkiej natury" },
   description: {
     en: "Every treatment at Eldfjall Beauty harnesses the unique natural resources of Iceland — pure geothermal water, mineral-rich volcanic earth, and wild-harvested botanicals from pristine landscapes untouched for millennia.",
     is: "Sérhver meðferð hjá Eldfjall Beauty nýtir einstaka náttúruauðlindir Íslands — hreint jarðhitavatn, steinefnaríka eldfjallajörð og villt uppskerin jurtir frá ósnortnum landslagi í árþúsundir.",
@@ -66,28 +58,29 @@ const Ingredients = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 md:py-32 bg-volcanic overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-16 md:py-32 bg-volcanic overflow-hidden">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
           variants={fadeInUp}
         >
-          <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-3">
+          <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-gold mb-2 md:mb-3">
             {t(translations.subtitle)}
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-light text-cream leading-tight">
+          <h2 className="font-display text-3xl md:text-5xl font-light text-cream leading-tight">
             {t(translations.title)}
           </h2>
-          <p className="font-body text-sm text-cream/60 leading-relaxed mt-6 max-w-2xl mx-auto">
+          <p className="font-body text-xs md:text-sm text-cream/60 leading-relaxed mt-4 md:mt-6 max-w-2xl mx-auto">
             {t(translations.description)}
           </p>
         </motion.div>
 
+        {/* Mobile: horizontal scroll, Desktop: grid */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="flex md:grid md:grid-cols-4 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
@@ -97,11 +90,11 @@ const Ingredients = () => {
             <motion.div
               key={i}
               variants={fadeInUp}
-              className="group"
+              className="group min-w-[65vw] md:min-w-0 snap-center"
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="aspect-square overflow-hidden rounded-sm mb-4">
+              <div className="aspect-square overflow-hidden rounded-sm mb-3 md:mb-4">
                 <img
                   src={item.image}
                   alt={t(item.name)}
@@ -111,15 +104,21 @@ const Ingredients = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
-              <h3 className="font-display text-lg font-medium text-cream mb-2">
+              <h3 className="font-display text-base md:text-lg font-medium text-cream mb-1 md:mb-2">
                 {t(item.name)}
               </h3>
-              <p className="font-body text-xs text-cream/50 leading-relaxed">
+              <p className="font-body text-[11px] md:text-xs text-cream/50 leading-relaxed">
                 {t(item.description)}
               </p>
             </motion.div>
           ))}
         </motion.div>
+
+        <div className="flex justify-center gap-1.5 mt-3 md:hidden">
+          {translations.ingredients.map((_, i) => (
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-gold/30" />
+          ))}
+        </div>
       </div>
     </section>
   );

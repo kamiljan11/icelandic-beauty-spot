@@ -4,21 +4,9 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
 
 const translations = {
-  subtitle: {
-    en: "ELDFJALL BEAUTY",
-    is: "ELDFJALL BEAUTY",
-    pl: "ELDFJALL BEAUTY",
-  },
-  title1: {
-    en: "Want to Experience",
-    is: "Viltu upplifa",
-    pl: "Chcesz doświadczyć",
-  },
-  title2: {
-    en: "True Icelandic Beauty?",
-    is: "sanna íslenska fegurð?",
-    pl: "prawdziwego islandzkiego piękna?",
-  },
+  subtitle: { en: "ELDFJALL BEAUTY", is: "ELDFJALL BEAUTY", pl: "ELDFJALL BEAUTY" },
+  title1: { en: "Want to Experience", is: "Viltu upplifa", pl: "Chcesz doświadczyć" },
+  title2: { en: "True Icelandic Beauty?", is: "sanna íslenska fegurð?", pl: "prawdziwego islandzkiego piękna?" },
   description: {
     en: "We offer personalized treatments using geothermal water, volcanic minerals and organic Icelandic ingredients. Everything tailored to your skin. One visit. Pure transformation.",
     is: "Við bjóðum upp á persónulegar meðferðir með jarðhitavatni, eldfjallasteinefnum og lífrænni íslenskri náttúru. Allt sérstaklega hannað fyrir þína húð. Ein heimsókn. Hrein umbreyting.",
@@ -43,48 +31,49 @@ const CtaBanner = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="bg-volcanic py-20 md:py-28 overflow-hidden">
+    <section className="bg-volcanic py-14 md:py-28 overflow-hidden">
       <motion.div
-        className="max-w-4xl mx-auto px-6 text-center"
+        className="max-w-4xl mx-auto px-5 md:px-6 text-center"
         initial="hidden"
         whileInView="visible"
         viewport={viewportConfig}
         variants={staggerContainer}
       >
-        <motion.p variants={fadeInUp} className="font-body text-sm tracking-[0.3em] uppercase text-gold mb-6">
+        <motion.p variants={fadeInUp} className="font-body text-[10px] md:text-sm tracking-[0.3em] uppercase text-gold mb-4 md:mb-6">
           {t(translations.subtitle)}
         </motion.p>
-        <motion.h2 variants={fadeInUp} className="font-display text-4xl md:text-6xl font-light text-cream leading-tight mb-2">
+        <motion.h2 variants={fadeInUp} className="font-display text-3xl md:text-6xl font-light text-cream leading-tight mb-1 md:mb-2">
           {t(translations.title1)}
         </motion.h2>
-        <motion.h2 variants={fadeInUp} className="font-display text-4xl md:text-6xl font-light italic text-gold leading-tight mb-8">
+        <motion.h2 variants={fadeInUp} className="font-display text-3xl md:text-6xl font-light italic text-gold leading-tight mb-6 md:mb-8">
           {t(translations.title2)}
         </motion.h2>
-        <motion.p variants={fadeInUp} className="font-body text-base text-cream/60 leading-relaxed max-w-2xl mx-auto mb-12">
+        <motion.p variants={fadeInUp} className="font-body text-xs md:text-base text-cream/60 leading-relaxed max-w-2xl mx-auto mb-8 md:mb-12">
           {t(translations.description)}
         </motion.p>
 
-        <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-8 md:gap-12 mb-14">
+        {/* Features - 2x2 grid on mobile */}
+        <motion.div variants={fadeInUp} className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-4 md:gap-12 mb-8 md:mb-14">
           {translations.features.map((feat, i) => (
-            <div key={i} className="flex items-center gap-2 text-cream/70">
-              <feat.icon className="w-5 h-5 text-gold" />
-              <span className="font-body text-sm">{t(feat.label)}</span>
+            <div key={i} className="flex items-center gap-2 text-cream/70 justify-center md:justify-start">
+              <feat.icon className="w-4 h-4 md:w-5 md:h-5 text-gold" />
+              <span className="font-body text-[11px] md:text-sm">{t(feat.label)}</span>
             </div>
           ))}
         </motion.div>
 
-        <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
+        <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-6 md:mb-8">
           <a
             href="#booking"
-            className="bg-gold text-volcanic px-12 py-4 font-body text-sm tracking-[0.2em] font-semibold hover:opacity-90 transition-opacity inline-flex items-center gap-3"
+            className="bg-gold text-volcanic px-10 md:px-12 py-3.5 md:py-4 font-body text-xs md:text-sm tracking-[0.2em] font-semibold hover:opacity-90 transition-opacity inline-flex items-center gap-3"
           >
             {t(translations.cta)}
             <span aria-hidden>→</span>
           </a>
-          <p className="font-body text-sm text-cream/60">{t(translations.price)}</p>
+          <p className="font-body text-xs md:text-sm text-cream/60">{t(translations.price)}</p>
         </motion.div>
 
-        <motion.p variants={fadeInUp} className="font-body text-xs text-cream/40">
+        <motion.p variants={fadeInUp} className="font-body text-[10px] md:text-xs text-cream/40">
           {t(translations.perks)}
         </motion.p>
       </motion.div>
