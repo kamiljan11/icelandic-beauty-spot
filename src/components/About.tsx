@@ -1,6 +1,8 @@
+import { motion } from "framer-motion";
 import landscapeImg from "@/assets/iceland-landscape.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
+import { fadeInUp, slideInLeft, slideInRight, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
 
 const About = () => {
   const { t } = useLanguage();
@@ -14,7 +16,13 @@ const About = () => {
     <section id="about" className="py-24 md:py-32 bg-card">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="overflow-hidden rounded-sm">
+          <motion.div
+            className="overflow-hidden rounded-sm"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            variants={slideInLeft}
+          >
             <img
               src={landscapeImg}
               alt="Iceland landscape"
@@ -23,25 +31,30 @@ const About = () => {
               loading="lazy"
               className="w-full h-[500px] object-cover"
             />
-          </div>
+          </motion.div>
 
-          <div>
-            <p className="font-body text-xs tracking-[0.3em] uppercase text-primary mb-3">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            variants={staggerContainer}
+          >
+            <motion.p variants={fadeInUp} className="font-body text-xs tracking-[0.3em] uppercase text-primary mb-3">
               {t(translations.about.subtitle)}
-            </p>
-            <h2 className="font-display text-4xl md:text-5xl font-light text-foreground mb-6">
+            </motion.p>
+            <motion.h2 variants={fadeInUp} className="font-display text-4xl md:text-5xl font-light text-foreground mb-6">
               {t(translations.about.title1)}
               <br />
               <span className="italic">{t(translations.about.title2)}</span>
-            </h2>
-            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
               {t(translations.about.p1)}
-            </p>
-            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8">
+            </motion.p>
+            <motion.p variants={fadeInUp} className="font-body text-sm text-muted-foreground leading-relaxed mb-8">
               {t(translations.about.p2)}
-            </p>
+            </motion.p>
 
-            <div className="grid grid-cols-3 gap-6">
+            <motion.div variants={fadeInUp} className="grid grid-cols-3 gap-6">
               {stats.map((stat, i) => (
                 <div key={i} className="text-center">
                   <p className="font-display text-3xl font-medium text-primary">
@@ -52,8 +65,8 @@ const About = () => {
                   </p>
                 </div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
