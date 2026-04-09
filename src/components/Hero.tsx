@@ -72,6 +72,14 @@ const Hero = () => {
               {t(translations.hero.seeServices)}
             </a>
           </motion.div>
+          <motion.p variants={fadeInUp} className="font-body text-xs text-cream/50 mt-6 flex items-center gap-2">
+            <span className="text-frost">✓</span>
+            {t({
+              en: "Payment on-site · No deposit required · Free consultation",
+              is: "Greitt á staðnum · Engin innborgun · Ókeypis ráðgjöf",
+              pl: "Płatność na miejscu · Bez zaliczki · Bezpłatna konsultacja",
+            })}
+          </motion.p>
         </motion.div>
       </motion.div>
     </section>
