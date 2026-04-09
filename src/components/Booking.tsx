@@ -86,6 +86,10 @@ const Booking = () => {
             >
               {t(b.submit)}
             </button>
+            <p className="font-body text-xs text-muted-foreground/70 text-center mt-3 flex items-center justify-center gap-1.5">
+              <span className="text-primary">✓</span>
+              {t({ en: "Payment on-site — no deposit required", is: "Greitt á staðnum — engin innborgun", pl: "Płatność na miejscu — bez zaliczki" })}
+            </p>
           </motion.div>
         </motion.form>
       </div>
