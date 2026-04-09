@@ -1,9 +1,11 @@
 import { Droplets, Sparkles, Leaf } from "lucide-react";
+import { motion } from "framer-motion";
 import skincareImg from "@/assets/treatment-skincare.jpg";
 import salonImg from "@/assets/salon-interior.jpg";
 import landscapeImg from "@/assets/iceland-landscape.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
+import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
 
 const icons = [Sparkles, Droplets, Leaf];
 const images = [skincareImg, salonImg, landscapeImg];
@@ -14,20 +16,38 @@ const Services = () => {
   return (
     <section id="services" className="py-24 md:py-32 bg-background">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          variants={fadeInUp}
+        >
           <p className="font-body text-xs tracking-[0.3em] uppercase text-primary mb-3">
             {t(translations.services.subtitle)}
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">
             {t(translations.services.title)}
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div
+          className="grid md:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          variants={staggerContainer}
+        >
           {translations.services.items.map((service, i) => {
             const Icon = icons[i];
             return (
-              <div key={i} className="group">
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                className="group cursor-pointer"
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.3 }}
+              >
                 <div className="overflow-hidden rounded-sm mb-6">
                   <img
                     src={images[i]}
@@ -47,10 +67,10 @@ const Services = () => {
                 <p className="font-body text-sm text-muted-foreground leading-relaxed">
                   {t(service.description)}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

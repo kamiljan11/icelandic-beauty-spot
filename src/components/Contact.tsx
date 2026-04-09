@@ -1,6 +1,8 @@
+import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Instagram } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
+import { fadeInUp, slideInLeft, slideInRight, viewportConfig } from "@/hooks/useScrollAnimation";
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -9,17 +11,29 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 md:py-32 bg-background">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          variants={fadeInUp}
+        >
           <p className="font-body text-xs tracking-[0.3em] uppercase text-primary mb-3">
             {t(c.subtitle)}
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">
             {t(c.title)}
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-8">
+          <motion.div
+            className="space-y-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            variants={slideInLeft}
+          >
             <div className="flex items-start gap-4">
               <MapPin size={20} className="text-primary mt-0.5 shrink-0" />
               <div>
@@ -63,9 +77,15 @@ const Contact = () => {
                 <p className="font-body text-sm text-muted-foreground">@eldfjallbeauty</p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="bg-card rounded-sm overflow-hidden border border-border h-80 md:h-auto">
+          <motion.div
+            className="bg-card rounded-sm overflow-hidden border border-border h-80 md:h-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            variants={slideInRight}
+          >
             <iframe
               title="Eldfjall Beauty location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1742.5!2d-21.9!3d64.145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNjTCsDA4JzQyLjAiTiAyMcKwNTQnMDAuMCJX!5e0!3m2!1sis!2sis!4v1600000000000"
@@ -75,7 +95,7 @@ const Contact = () => {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

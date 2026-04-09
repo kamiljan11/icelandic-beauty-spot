@@ -5,10 +5,13 @@ import Services from "@/components/Services";
 import About from "@/components/About";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
+import BeforeAfter from "@/components/BeforeAfter";
+import GiftCards from "@/components/GiftCards";
+import SocialProof from "@/components/SocialProof";
 import Booking from "@/components/Booking";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
 import CtaBanner from "@/components/CtaBanner";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -18,8 +21,11 @@ const Index = () => {
         <Hero />
         <Services />
         <About />
+        <BeforeAfter />
         <Pricing />
+        <GiftCards />
         <Testimonials />
+        <SocialProof />
         <Booking />
         <Contact />
         <CtaBanner />

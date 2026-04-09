@@ -1,37 +1,64 @@
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import heroImage from "@/assets/hero-spa.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
+import { fadeInUp, staggerContainer } from "@/hooks/useScrollAnimation";
 
 const Hero = () => {
   const { t } = useLanguage();
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center">
-      <div className="absolute inset-0">
+    <section id="home" ref={ref} className="relative min-h-screen flex items-center overflow-hidden">
+      <motion.div className="absolute inset-0" style={{ y }}>
         <img
           src={heroImage}
           alt="Eldfjall Beauty Spa á Íslandi"
           width={1920}
           height={1080}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-110"
         />
         <div className="absolute inset-0 bg-volcanic/50" />
-      </div>
+      </motion.div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-32">
-        <div className="max-w-2xl">
-          <p className="font-body text-sm tracking-[0.3em] uppercase text-frost mb-6">
+      <motion.div
+        className="relative z-10 max-w-6xl mx-auto px-6 py-32"
+        style={{ opacity }}
+      >
+        <motion.div
+          className="max-w-2xl"
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+        >
+          <motion.p
+            variants={fadeInUp}
+            className="font-body text-sm tracking-[0.3em] uppercase text-frost mb-6"
+          >
             {t(translations.hero.subtitle)}
-          </p>
-          <h1 className="font-display text-5xl md:text-7xl font-light text-cream leading-tight mb-6">
+          </motion.p>
+          <motion.h1
+            variants={fadeInUp}
+            className="font-display text-5xl md:text-7xl font-light text-cream leading-tight mb-6"
+          >
             {t(translations.hero.title1)}
             <br />
             <span className="italic font-light">{t(translations.hero.title2)}</span>
-          </h1>
-          <p className="font-body text-base text-cream/80 leading-relaxed max-w-md mb-10">
+          </motion.h1>
+          <motion.p
+            variants={fadeInUp}
+            className="font-body text-base text-cream/80 leading-relaxed max-w-md mb-10"
+          >
             {t(translations.hero.description)}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          </motion.p>
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
             <a
               href="#booking"
               className="bg-primary text-primary-foreground px-8 py-3.5 rounded-sm font-body text-sm tracking-wide hover:opacity-90 transition-opacity text-center"
@@ -44,9 +71,9 @@ const Hero = () => {
             >
               {t(translations.hero.seeServices)}
             </a>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
