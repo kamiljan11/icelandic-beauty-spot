@@ -28,7 +28,7 @@ const translations = {
         is: "Lífræn naglameðferð með íslenskum steinefnaolíum",
         pl: "Organiczna pielęgnacja paznokci z islandzkimi olejkami mineralnymi",
       },
-      before: salonImg,
+      before: beforeNailsImg,
       after: afterNailsImg,
     },
   ],
