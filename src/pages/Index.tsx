@@ -8,6 +8,7 @@ import Testimonials from "@/components/Testimonials";
 import Booking from "@/components/Booking";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CtaBanner from "@/components/CtaBanner";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
         <Testimonials />
         <Booking />
         <Contact />
+        <CtaBanner />
         <Footer />
       </div>
     </LanguageProvider>
