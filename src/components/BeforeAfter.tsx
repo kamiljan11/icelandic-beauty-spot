@@ -5,7 +5,7 @@ import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAni
 import beforeFacialImg from "@/assets/before-facial.jpg";
 import afterFacialImg from "@/assets/after-facial.jpg";
 import afterNailsImg from "@/assets/after-nails.jpg";
-import salonImg from "@/assets/salon-interior.jpg";
+import beforeNailsImg from "@/assets/before-nails.jpg";
 
 const translations = {
   subtitle: { en: "Results", is: "Árangur", pl: "Rezultaty" },
@@ -28,7 +28,7 @@ const translations = {
         is: "Lífræn naglameðferð með íslenskum steinefnaolíum",
         pl: "Organiczna pielęgnacja paznokci z islandzkimi olejkami mineralnymi",
       },
-      before: salonImg,
+      before: beforeNailsImg,
       after: afterNailsImg,
     },
   ],
