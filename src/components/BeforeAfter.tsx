@@ -5,7 +5,7 @@ import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAni
 import beforeFacialImg from "@/assets/before-facial.jpg";
 import afterFacialImg from "@/assets/after-facial.jpg";
 import afterNailsImg from "@/assets/after-nails.jpg";
-import salonImg from "@/assets/salon-interior.jpg";
+import beforeNailsImg from "@/assets/before-nails.jpg";
 
 const translations = {
   subtitle: { en: "Results", is: "Árangur", pl: "Rezultaty" },
