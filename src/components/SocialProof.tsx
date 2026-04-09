@@ -15,18 +15,9 @@ const translations = {
   googleRating: { en: "Google Reviews", is: "Google umsagnir", pl: "Opinie Google" },
   followUs: { en: "Follow us on Instagram", is: "Fylgdu okkur á Instagram", pl: "Obserwuj nas na Instagramie" },
   badges: [
-    {
-      icon: Shield,
-      label: { en: "Certified Organic", is: "Vottað lífrænt", pl: "Certyfikat ekologiczny" },
-    },
-    {
-      icon: Award,
-      label: { en: "Icelandic Quality", is: "Íslensk gæði", pl: "Islandzka jakość" },
-    },
-    {
-      icon: Leaf,
-      label: { en: "Cruelty Free", is: "Dýravænt", pl: "Cruelty Free" },
-    },
+    { icon: Shield, label: { en: "Certified Organic", is: "Vottað lífrænt", pl: "Certyfikat ekologiczny" } },
+    { icon: Award, label: { en: "Icelandic Quality", is: "Íslensk gæði", pl: "Islandzka jakość" } },
+    { icon: Leaf, label: { en: "Cruelty Free", is: "Dýravænt", pl: "Cruelty Free" } },
   ],
 };
 
@@ -43,53 +34,51 @@ const SocialProof = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 md:py-32 bg-card overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-16 md:py-32 bg-card overflow-hidden">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
           variants={fadeInUp}
         >
-          <p className="font-body text-xs tracking-[0.3em] uppercase text-primary mb-3">
+          <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-primary mb-2 md:mb-3">
             {t(translations.subtitle)}
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl font-light text-foreground">
             {t(translations.title)}
           </h2>
         </motion.div>
 
-        {/* Stats & Badges Row */}
+        {/* Stats & Badges - horizontal scroll on mobile */}
         <motion.div
-          className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mb-16"
+          className="flex gap-6 md:gap-16 items-center justify-start md:justify-center mb-10 md:mb-16 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-2 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
           variants={staggerContainer}
         >
-          {/* Google Rating */}
-          <motion.div variants={scaleIn} className="text-center">
-            <div className="flex items-center justify-center gap-1 mb-2">
+          <motion.div variants={scaleIn} className="text-center min-w-[28vw] md:min-w-0 snap-center">
+            <div className="flex items-center justify-center gap-0.5 md:gap-1 mb-1 md:mb-2">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={18} className="fill-gold text-gold" />
+                <Star key={i} size={14} className="fill-gold text-gold md:w-[18px] md:h-[18px]" />
               ))}
             </div>
-            <p className="font-display text-3xl font-medium text-foreground">4.9</p>
-            <p className="font-body text-xs text-muted-foreground mt-1">{t(translations.googleRating)}</p>
+            <p className="font-display text-2xl md:text-3xl font-medium text-foreground">4.9</p>
+            <p className="font-body text-[10px] md:text-xs text-muted-foreground mt-0.5 md:mt-1">{t(translations.googleRating)}</p>
           </motion.div>
 
           <div className="hidden md:block w-px h-16 bg-border" />
 
-          {/* Trust Badges */}
           {translations.badges.map((badge, i) => {
             const Icon = badge.icon;
             return (
-              <motion.div key={i} variants={scaleIn} className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Icon size={18} className="text-primary" />
+              <motion.div key={i} variants={scaleIn} className="flex items-center gap-2 md:gap-3 min-w-fit snap-center">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <Icon size={14} className="text-primary md:w-[18px] md:h-[18px]" />
                 </div>
-                <span className="font-body text-sm font-semibold text-foreground">
+                <span className="font-body text-xs md:text-sm font-semibold text-foreground whitespace-nowrap">
                   {t(badge.label)}
                 </span>
               </motion.div>
@@ -97,14 +86,9 @@ const SocialProof = () => {
           })}
         </motion.div>
 
-        {/* Instagram Grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportConfig}
-          variants={fadeIn}
-        >
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+        {/* Instagram Grid - 2 cols on mobile */}
+        <motion.div initial="hidden" whileInView="visible" viewport={viewportConfig} variants={fadeIn}>
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-1.5 md:gap-2">
             {igImages.map((img, i) => (
               <motion.a
                 key={i}
@@ -124,19 +108,19 @@ const SocialProof = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-volcanic/0 group-hover:bg-volcanic/40 transition-colors duration-300 flex items-center justify-center">
-                  <Instagram size={24} className="text-cream opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <Instagram size={20} className="text-cream opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               </motion.a>
             ))}
           </div>
-          <div className="text-center mt-6">
+          <div className="text-center mt-4 md:mt-6">
             <a
               href="https://instagram.com/eldfjallbeauty"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-body text-sm text-primary hover:text-primary/80 transition-colors"
+              className="inline-flex items-center gap-2 font-body text-xs md:text-sm text-primary hover:text-primary/80 transition-colors"
             >
-              <Instagram size={16} />
+              <Instagram size={14} />
               {t(translations.followUs)} — @eldfjallbeauty
             </a>
           </div>

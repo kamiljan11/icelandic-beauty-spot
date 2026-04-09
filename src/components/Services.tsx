@@ -14,25 +14,26 @@ const Services = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="services" className="py-24 md:py-32 bg-background">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="services" className="py-16 md:py-32 bg-background">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
           variants={fadeInUp}
         >
-          <p className="font-body text-xs tracking-[0.3em] uppercase text-primary mb-3">
+          <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-primary mb-2 md:mb-3">
             {t(translations.services.subtitle)}
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl font-light text-foreground">
             {t(translations.services.title)}
           </h2>
         </motion.div>
 
+        {/* Mobile: horizontal scroll, Desktop: grid */}
         <motion.div
-          className="grid md:grid-cols-3 gap-8"
+          className="flex md:grid md:grid-cols-3 gap-5 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
@@ -44,33 +45,40 @@ const Services = () => {
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="group cursor-pointer"
+                className="group cursor-pointer min-w-[75vw] md:min-w-0 snap-center"
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="overflow-hidden rounded-sm mb-6">
+                <div className="overflow-hidden rounded-sm mb-4 md:mb-6">
                   <img
                     src={images[i]}
                     alt={t(service.title)}
                     width={800}
                     height={800}
                     loading="lazy"
-                    className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-56 md:h-72 object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
-                <div className="flex items-center gap-3 mb-3">
-                  <Icon size={18} className="text-primary" />
-                  <h3 className="font-display text-xl font-medium text-foreground">
+                <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
+                  <Icon size={16} className="text-primary" />
+                  <h3 className="font-display text-lg md:text-xl font-medium text-foreground">
                     {t(service.title)}
                   </h3>
                 </div>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                <p className="font-body text-xs md:text-sm text-muted-foreground leading-relaxed">
                   {t(service.description)}
                 </p>
               </motion.div>
             );
           })}
         </motion.div>
+
+        {/* Scroll indicator dots - mobile only */}
+        <div className="flex justify-center gap-1.5 mt-3 md:hidden">
+          {translations.services.items.map((_, i) => (
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-primary/30" />
+          ))}
+        </div>
       </div>
     </section>
   );

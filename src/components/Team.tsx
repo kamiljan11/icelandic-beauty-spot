@@ -6,16 +6,8 @@ import birtaImg from "@/assets/team-birta.jpg";
 import gudrunImg from "@/assets/team-gudrun.jpg";
 
 const translations = {
-  subtitle: {
-    en: "OUR TEAM",
-    is: "OKKAR TEÝ",
-    pl: "NASZ ZESPÓŁ",
-  },
-  title: {
-    en: "Meet the specialists",
-    is: "Kynntu þér sérfræðingana",
-    pl: "Poznaj specjalistów",
-  },
+  subtitle: { en: "OUR TEAM", is: "OKKAR TEÝ", pl: "NASZ ZESPÓŁ" },
+  title: { en: "Meet the specialists", is: "Kynntu þér sérfræðingana", pl: "Poznaj specjalistów" },
   members: [
     {
       name: "Sigríður Jónsdóttir",
@@ -54,25 +46,26 @@ const Team = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 md:py-32 bg-card">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-16 md:py-32 bg-card">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
           variants={fadeInUp}
         >
-          <p className="font-body text-xs tracking-[0.3em] uppercase text-primary mb-3">
+          <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-primary mb-2 md:mb-3">
             {t(translations.subtitle)}
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl font-light text-foreground">
             {t(translations.title)}
           </h2>
         </motion.div>
 
+        {/* Mobile: horizontal scroll, Desktop: grid */}
         <motion.div
-          className="grid md:grid-cols-3 gap-10"
+          className="flex md:grid md:grid-cols-3 gap-6 md:gap-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
@@ -82,11 +75,11 @@ const Team = () => {
             <motion.div
               key={i}
               variants={fadeInUp}
-              className="text-center group"
+              className="text-center group min-w-[72vw] md:min-w-0 snap-center"
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="overflow-hidden rounded-sm mb-6 aspect-[4/5]">
+              <div className="overflow-hidden rounded-sm mb-4 md:mb-6 aspect-[4/5]">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -96,18 +89,24 @@ const Team = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <h3 className="font-display text-xl font-medium text-foreground mb-1">
+              <h3 className="font-display text-lg md:text-xl font-medium text-foreground mb-1">
                 {member.name}
               </h3>
-              <p className="font-body text-xs tracking-[0.15em] uppercase text-primary mb-3">
+              <p className="font-body text-[10px] md:text-xs tracking-[0.15em] uppercase text-primary mb-2 md:mb-3">
                 {t(member.role)}
               </p>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed">
+              <p className="font-body text-xs md:text-sm text-muted-foreground leading-relaxed">
                 {t(member.description)}
               </p>
             </motion.div>
           ))}
         </motion.div>
+
+        <div className="flex justify-center gap-1.5 mt-3 md:hidden">
+          {translations.members.map((_, i) => (
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-primary/30" />
+          ))}
+        </div>
       </div>
     </section>
   );

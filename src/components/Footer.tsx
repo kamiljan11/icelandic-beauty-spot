@@ -14,16 +14,16 @@ const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-volcanic pt-16 pb-8">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+    <footer className="bg-volcanic pt-10 md:pt-16 pb-6 md:pb-8">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
+        {/* Main Footer Grid - 2 cols on mobile */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-8 md:mb-12">
           {/* Brand */}
-          <div>
-            <p className="font-display text-2xl text-cream/90 mb-3">
+          <div className="col-span-2 md:col-span-1">
+            <p className="font-display text-xl md:text-2xl text-cream/90 mb-2 md:mb-3">
               Eldfjall <span className="text-sage-light">Beauty</span>
             </p>
-            <p className="font-body text-xs text-cream/40 leading-relaxed mb-4">
+            <p className="font-body text-[10px] md:text-xs text-cream/40 leading-relaxed mb-3 md:mb-4">
               Laugavegur 42, 101 Reykjavík
             </p>
             <div className="flex items-center gap-3">
@@ -50,10 +50,10 @@ const Footer = () => {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-body text-xs tracking-[0.2em] uppercase text-gold mb-4">
+            <h4 className="font-body text-[10px] md:text-xs tracking-[0.2em] uppercase text-gold mb-3 md:mb-4">
               {t(footerTranslations.nav)}
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-1.5 md:space-y-2">
               {[
                 { href: "#home", label: t(translations.nav.home) },
                 { href: "#services", label: t(translations.nav.services) },
@@ -63,10 +63,7 @@ const Footer = () => {
                 { href: "#booking", label: t(translations.nav.bookNow) },
               ].map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="font-body text-sm text-cream/50 hover:text-cream/80 transition-colors"
-                  >
+                  <a href={link.href} className="font-body text-xs md:text-sm text-cream/50 hover:text-cream/80 transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -76,28 +73,28 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-body text-xs tracking-[0.2em] uppercase text-gold mb-4">
+            <h4 className="font-body text-[10px] md:text-xs tracking-[0.2em] uppercase text-gold mb-3 md:mb-4">
               {t(footerTranslations.contactTitle)}
             </h4>
-            <div className="space-y-3">
+            <div className="space-y-2 md:space-y-3">
               <div className="flex items-center gap-2">
-                <MapPin size={14} className="text-cream/40 shrink-0" />
-                <span className="font-body text-sm text-cream/50">Laugavegur 42, 101 Reykjavík</span>
+                <MapPin size={12} className="text-cream/40 shrink-0" />
+                <span className="font-body text-[11px] md:text-sm text-cream/50">Laugavegur 42</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone size={14} className="text-cream/40 shrink-0" />
-                <a href="tel:+3545551234" className="font-body text-sm text-cream/50 hover:text-cream/80 transition-colors">
+                <Phone size={12} className="text-cream/40 shrink-0" />
+                <a href="tel:+3545551234" className="font-body text-[11px] md:text-sm text-cream/50 hover:text-cream/80 transition-colors">
                   +354 555 1234
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Mail size={14} className="text-cream/40 shrink-0" />
-                <a href="mailto:info@eldfjallbeauty.is" className="font-body text-sm text-cream/50 hover:text-cream/80 transition-colors">
+                <Mail size={12} className="text-cream/40 shrink-0" />
+                <a href="mailto:info@eldfjallbeauty.is" className="font-body text-[11px] md:text-sm text-cream/50 hover:text-cream/80 transition-colors break-all">
                   info@eldfjallbeauty.is
                 </a>
               </div>
-              <div className="mt-3">
-                <p className="font-body text-xs text-cream/30">
+              <div className="mt-2 md:mt-3">
+                <p className="font-body text-[10px] md:text-xs text-cream/30">
                   {t(footerTranslations.bookVia)}{" "}
                   <a href="https://sinna.is" target="_blank" rel="noopener noreferrer" className="text-gold/70 hover:text-gold transition-colors">
                     Sinna.is
@@ -108,11 +105,11 @@ const Footer = () => {
           </div>
 
           {/* Hours */}
-          <div>
-            <h4 className="font-body text-xs tracking-[0.2em] uppercase text-gold mb-4">
+          <div className="col-span-2 md:col-span-1">
+            <h4 className="font-body text-[10px] md:text-xs tracking-[0.2em] uppercase text-gold mb-3 md:mb-4">
               {t(footerTranslations.hoursTitle)}
             </h4>
-            <div className="font-body text-sm text-cream/50 space-y-1">
+            <div className="font-body text-[11px] md:text-sm text-cream/50 space-y-1">
               <p>{t({ en: "Mon–Fri", is: "Mán–Fös", pl: "Pon–Pt" })}: 09:00 – 19:00</p>
               <p>{t({ en: "Saturday", is: "Laugardagur", pl: "Sobota" })}: 10:00 – 16:00</p>
               <p>{t({ en: "Sunday", is: "Sunnudagur", pl: "Niedziela" })}: {t({ en: "Closed", is: "Lokað", pl: "Zamknięte" })}</p>
@@ -121,16 +118,16 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-cream/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-body text-xs text-cream/30">
+        <div className="border-t border-cream/10 pt-4 md:pt-6 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
+          <p className="font-body text-[10px] md:text-xs text-cream/30">
             {t(translations.footer.rights)}
           </p>
-          <div className="flex items-center gap-4">
-            <p className="font-body text-xs text-cream/20">
+          <div className="flex items-center gap-3 md:gap-4">
+            <p className="font-body text-[10px] md:text-xs text-cream/20">
               {t(footerTranslations.vat)}: 690521-0680
             </p>
             <span className="text-cream/10">|</span>
-            <p className="font-body text-xs text-cream/20">
+            <p className="font-body text-[10px] md:text-xs text-cream/20">
               VSK: 112233
             </p>
           </div>
