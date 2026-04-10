@@ -16,8 +16,8 @@ export const translations = {
       is: "Laugavegur 42, Reykjavík",
       pl: "Laugavegur 42, Reykjavík",
     },
-    title1: { en: "Where fire meets", is: "Þar sem eldur mætir", pl: "Gdzie ogień spotyka" },
-    title2: { en: "skin & soul", is: "húð og sál", pl: "skórę i duszę" },
+    title1: { en: "Your skin deserves", is: "Húðin þín á skilið", pl: "Twoja skóra zasługuje na" },
+    title2: { en: "what only Iceland can give", is: "það sem aðeins Ísland getur gefið", pl: "to, co może dać tylko Islandia" },
     description: {
       en: "A small studio in central Reykjavík where every treatment uses geothermal water, volcanic minerals and wild Icelandic botanicals — sourced by us, mixed by hand, made for your skin.",
       is: "Lítil stúdía í miðborg Reykjavíkur þar sem sérhver meðferð notar jarðhitavatn, eldfjallasteinefni og villtar íslenskar jurtir — safnað af okkur, blandað í höndunum, búið til fyrir þína húð.",
