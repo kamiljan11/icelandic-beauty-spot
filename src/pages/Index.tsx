@@ -16,7 +16,6 @@ import SocialProof from "@/components/SocialProof";
 import FAQ from "@/components/FAQ";
 import Booking from "@/components/Booking";
 import Contact from "@/components/Contact";
-import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
 
 const AppContent = () => {
@@ -37,7 +36,6 @@ const AppContent = () => {
       <FAQ />
       <Booking />
       <Contact />
-      <CtaBanner />
       <Footer />
       <DemoDialog open={open} onOpenChange={setOpen} />
     </div>
