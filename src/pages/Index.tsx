@@ -15,6 +15,7 @@ import FAQ from "@/components/FAQ";
 import Booking from "@/components/Booking";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import FloatingPhone from "@/components/FloatingPhone";
 
 const AppContent = () => {
   const { open, setOpen } = useDemo();
