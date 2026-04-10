@@ -7,8 +7,8 @@ import { fadeInUp, slideInLeft, staggerContainer, viewportConfig } from "@/hooks
 const About = () => {
   const { t } = useLanguage();
   const stats = [
-    { value: "15+", label: t(translations.about.stats.years) },
-    { value: "2000+", label: t(translations.about.stats.clients) },
+    { value: "8", label: t(translations.about.stats.years) },
+    { value: "500+", label: t(translations.about.stats.clients) },
     { value: "100%", label: t(translations.about.stats.natural) },
   ];
 

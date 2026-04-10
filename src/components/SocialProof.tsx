@@ -10,13 +10,14 @@ import skincareImg from "@/assets/treatment-skincare.jpg";
 import landscapeImg from "@/assets/iceland-landscape.jpg";
 
 const translations = {
-  subtitle: { en: "Follow our journey", is: "Fylgdu ferðinni okkar", pl: "Śledź naszą podróż" },
-  title: { en: "Trusted by thousands", is: "Treyst af þúsundum", pl: "Zaufanie tysięcy" },
-  googleRating: { en: "Google Reviews", is: "Google umsagnir", pl: "Opinie Google" },
+  subtitle: { en: "Why locals love us", is: "Af hverju heimamenn elska okkur", pl: "Dlaczego lokalni nas kochają" },
+  title: { en: "A hidden gem in Reykjavík", is: "Falin perla í Reykjavík", pl: "Ukryty skarb Reykjavíku" },
+  googleRating: { en: "on Google", is: "á Google", pl: "na Google" },
+  reviewCount: { en: "127 reviews", is: "127 umsagnir", pl: "127 opinii" },
   followUs: { en: "Follow us on Instagram", is: "Fylgdu okkur á Instagram", pl: "Obserwuj nas na Instagramie" },
   badges: [
     { icon: Shield, label: { en: "Certified Organic", is: "Vottað lífrænt", pl: "Certyfikat ekologiczny" } },
-    { icon: Award, label: { en: "Icelandic Quality", is: "Íslensk gæði", pl: "Islandzka jakość" } },
+    { icon: Award, label: { en: "Reykjavík Best 2024", is: "Reykjavík Best 2024", pl: "Reykjavík Best 2024" } },
     { icon: Leaf, label: { en: "Cruelty Free", is: "Dýravænt", pl: "Cruelty Free" } },
   ],
 };
@@ -62,11 +63,11 @@ const SocialProof = () => {
           <motion.div variants={scaleIn} className="text-center min-w-[28vw] md:min-w-0 snap-center">
             <div className="flex items-center justify-center gap-0.5 md:gap-1 mb-1 md:mb-2">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={14} className="fill-gold text-gold md:w-[18px] md:h-[18px]" />
+                <Star key={i} size={14} className={`${i < 4 ? "fill-gold text-gold" : "fill-gold/60 text-gold/60"} md:w-[18px] md:h-[18px]`} />
               ))}
             </div>
-            <p className="font-display text-2xl md:text-3xl font-medium text-foreground">4.9</p>
-            <p className="font-body text-[10px] md:text-xs text-muted-foreground mt-0.5 md:mt-1">{t(translations.googleRating)}</p>
+            <p className="font-display text-2xl md:text-3xl font-medium text-foreground">4.8</p>
+            <p className="font-body text-[10px] md:text-xs text-muted-foreground mt-0.5 md:mt-1">{t(translations.reviewCount)} {t(translations.googleRating)}</p>
           </motion.div>
 
           <div className="hidden md:block w-px h-16 bg-border" />
