@@ -12,9 +12,9 @@ const ctaTranslations = {
   title1: { en: "One Visit.", is: "Ein heimsókn.", pl: "Jedna wizyta." },
   title2: { en: "You'll Feel the Difference.", is: "Þú munt finna muninn.", pl: "Poczujesz różnicę." },
   description: {
-    en: "No subscriptions, no pressure, no upselling. Just Sigríður, volcanic minerals, geothermal water, and 90 minutes of your time.",
-    is: "Engin áskrift, enginn þrýstingur, engin uppselja. Bara Sigríður, eldfjallasteinefni, jarðhitavatn og 90 mínútur af þínum tíma.",
-    pl: "Bez abonamentów, bez presji, bez wciskania. Tylko Sigríður, minerały wulkaniczne, woda geotermalna i 90 minut Twojego czasu.",
+    en: "One treatment with Sigríður — volcanic minerals, geothermal water, and ingredients we source ourselves. 90 minutes, real results, nothing artificial.",
+    is: "Ein meðferð hjá Sigríði — eldfjallasteinefni, jarðhitavatn og hráefni sem við sækjum sjálf. 90 mínútur, raunverulegur árangur, ekkert tilbúið.",
+    pl: "Jeden zabieg u Sigríður — minerały wulkaniczne, woda geotermalna i składniki, które sami pozyskujemy. 90 minut, prawdziwe efekty, nic sztucznego.",
   },
   features: [
     { icon: Globe, label: { en: "Locally Sourced", is: "Staðbundið", pl: "Lokalne składniki" } },
