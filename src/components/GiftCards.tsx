@@ -6,7 +6,12 @@ import { useDemo } from "@/hooks/useDemo";
 
 const translations = {
   subtitle: { en: "Gift Cards & Packages", is: "Gjafakort og pakkar", pl: "Karty podarunkowe i pakiety" },
-  title: { en: "The perfect gift", is: "Hið fullkomna gjöf", pl: "Idealny prezent" },
+  title: { en: "The perfect gift", is: "Fullkomna gjöfin", pl: "Idealny prezent" },
+  description: {
+    en: "For yourself, your loved ones, or someone who deserves a moment of calm",
+    is: "Fyrir þig, þína nánustu, eða einhvern sem á skilið augnablik af ró",
+    pl: "Dla siebie, bliskich lub kogoś, kto zasługuje na chwilę spokoju",
+  },
   giftCards: {
     title: { en: "Gift Cards", is: "Gjafakort", pl: "Karty podarunkowe" },
     items: [
