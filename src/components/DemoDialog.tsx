@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Globe, Camera, BarChart3, Zap } from "lucide-react";
+import { Globe, Camera, BarChart3, Zap, CalendarCheck, CreditCard, Bell, Gift, Star, Mail } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 interface DemoDialogProps {
@@ -14,9 +14,9 @@ const translations = {
     pl: "To jest strona demo",
   },
   description: {
-    en: "You're viewing a showcase of what a premium beauty salon website looks like. All features — booking, payments, notifications — would be fully functional in the real version.",
-    is: "Þú ert að skoða sýnishorn af því hvernig vefsíða lúxus snyrtistofu lítur út. Allir eiginleikar — bókanir, greiðslur, tilkynningar — yrðu fullkomlega virkir í raunverulegri útgáfu.",
-    pl: "Oglądasz pokaz tego, jak wygląda strona premium salonu kosmetycznego. Wszystkie funkcje — rezerwacje, płatności, powiadomienia — byłyby w pełni funkcjonalne w prawdziwej wersji.",
+    en: "You're viewing a showcase of what a premium beauty salon website can do. Here's what each feature would do on the real version:",
+    is: "Þú ert að skoða sýnishorn af því hvað vefsíða lúxus snyrtistofu getur gert. Hér er hvað hver eiginleiki myndi gera í raunverulegri útgáfu:",
+    pl: "Oglądasz pokaz tego, co może strona premium salonu kosmetycznego. Oto co każda funkcja robiłaby w prawdziwej wersji:",
   },
   cta: {
     en: "Want a Website Like This?",
@@ -45,7 +45,64 @@ const translations = {
   },
 };
 
-const features = [
+const realFeatures = [
+  {
+    icon: CalendarCheck,
+    label: { en: "Online Booking", is: "Netbókun", pl: "Rezerwacja online" },
+    desc: {
+      en: "Clients pick a date, time & treatment — confirmed instantly",
+      is: "Viðskiptavinir velja dag, tíma og meðferð — staðfest samstundis",
+      pl: "Klienci wybierają datę, godzinę i zabieg — potwierdzone natychmiast",
+    },
+  },
+  {
+    icon: CreditCard,
+    label: { en: "Online Payments", is: "Netgreiðslur", pl: "Płatności online" },
+    desc: {
+      en: "Secure card payments & deposits at checkout",
+      is: "Öruggar kortagreiðslur og innborganir við útskráningu",
+      pl: "Bezpieczne płatności kartą i zaliczki przy kasie",
+    },
+  },
+  {
+    icon: Bell,
+    label: { en: "SMS & Email Reminders", is: "SMS og tölvupóst", pl: "Przypomnienia SMS/email" },
+    desc: {
+      en: "Automatic reminders so clients never miss appointments",
+      is: "Sjálfvirkar áminningar svo viðskiptavinir missi aldrei af tímum",
+      pl: "Automatyczne przypomnienia, by klienci nie przegapili wizyt",
+    },
+  },
+  {
+    icon: Gift,
+    label: { en: "Gift Card Sales", is: "Gjafakortasala", pl: "Sprzedaż kart podarunkowych" },
+    desc: {
+      en: "Sell & deliver digital gift cards directly from the site",
+      is: "Seldu og afhentu stafræn gjafakort beint af síðunni",
+      pl: "Sprzedawaj i dostarczaj cyfrowe karty podarunkowe ze strony",
+    },
+  },
+  {
+    icon: Star,
+    label: { en: "Review Collection", is: "Umsagnasöfnun", pl: "Zbieranie opinii" },
+    desc: {
+      en: "Auto-request Google reviews after each visit",
+      is: "Sjálfvirk beiðni um Google umsagnir eftir hverja heimsókn",
+      pl: "Automatyczne prośby o opinie Google po każdej wizycie",
+    },
+  },
+  {
+    icon: Mail,
+    label: { en: "Contact Forms", is: "Samskiptaform", pl: "Formularze kontaktowe" },
+    desc: {
+      en: "Enquiries go straight to your inbox & phone",
+      is: "Fyrirspurnir fara beint í pósthólfið þitt og símann",
+      pl: "Zapytania trafiają prosto do Twojej skrzynki i na telefon",
+    },
+  },
+];
+
+const buildFeatures = [
   { icon: Globe, label: { en: "Custom Website", is: "Sérsniðin vefsíða", pl: "Własna strona" } },
   { icon: Camera, label: { en: "Professional Photos", is: "Faglegar ljósmyndir", pl: "Profesjonalne zdjęcia" } },
   { icon: BarChart3, label: { en: "Social Media Ads", is: "Samfélagsmiðlaauglýsingar", pl: "Reklamy social media" } },
@@ -57,9 +114,9 @@ const DemoDialog = ({ open, onOpenChange }: DemoDialogProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg p-0 overflow-hidden border-none bg-volcanic text-cream">
+      <DialogContent className="max-w-lg p-0 overflow-hidden border-none bg-volcanic text-cream max-h-[90vh] overflow-y-auto">
         {/* Top section */}
-        <div className="px-6 pt-8 pb-6 md:px-8 md:pt-10 md:pb-8 text-center">
+        <div className="px-6 pt-8 pb-4 md:px-8 md:pt-10 md:pb-5 text-center">
           <DialogHeader className="sm:text-center">
             <p className="font-body text-[10px] md:text-xs tracking-[0.25em] uppercase text-gold/70 mb-3">
               ✦ DEMO
@@ -71,6 +128,19 @@ const DemoDialog = ({ open, onOpenChange }: DemoDialogProps) => {
               {t(translations.description)}
             </DialogDescription>
           </DialogHeader>
+        </div>
+
+        {/* Feature list */}
+        <div className="px-6 md:px-8 pb-4 space-y-2.5">
+          {realFeatures.map((feat, i) => (
+            <div key={i} className="flex items-start gap-3 bg-cream/[0.03] rounded-lg px-3.5 py-2.5">
+              <feat.icon className="w-4 h-4 text-gold/70 shrink-0 mt-0.5" />
+              <div>
+                <span className="font-body text-xs font-semibold text-cream/80">{t(feat.label)}</span>
+                <p className="font-body text-[10px] md:text-[11px] text-cream/40 leading-relaxed">{t(feat.desc)}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Divider */}
@@ -86,7 +156,7 @@ const DemoDialog = ({ open, onOpenChange }: DemoDialogProps) => {
           </p>
 
           <div className="grid grid-cols-2 gap-2.5 mb-6 max-w-xs mx-auto">
-            {features.map((feat, i) => (
+            {buildFeatures.map((feat, i) => (
               <div key={i} className="flex items-center gap-1.5 text-cream/60">
                 <feat.icon className="w-3.5 h-3.5 text-gold/60 shrink-0" />
                 <span className="font-body text-[10px] md:text-xs">{t(feat.label)}</span>
