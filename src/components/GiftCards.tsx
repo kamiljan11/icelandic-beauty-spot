@@ -76,9 +76,12 @@ const GiftCards = () => {
           <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-primary mb-2 md:mb-3">
             {t(translations.subtitle)}
           </p>
-          <h2 className="font-display text-3xl md:text-5xl font-light text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl font-light text-foreground mb-3 md:mb-4">
             {t(translations.title)}
           </h2>
+          <p className="font-body text-xs md:text-sm text-muted-foreground max-w-md mx-auto">
+            {t(translations.description)}
+          </p>
         </motion.div>
 
         {/* Gift Cards */}
