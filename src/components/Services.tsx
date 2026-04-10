@@ -82,7 +82,6 @@ const Services = () => {
             <h2 className="font-display text-3xl md:text-5xl font-light text-foreground">
               {t(translations.services.title)}
             </h2>
-            </h2>
           </motion.div>
 
           <motion.div
