@@ -40,7 +40,7 @@ const Pricing = () => {
           viewport={viewportConfig}
           variants={fadeInUp}
         >
-          <div className="inline-flex bg-muted/50 rounded-sm p-1 gap-0.5">
+          <div className="inline-flex bg-muted/50 rounded-sm p-1 gap-0.5 flex-wrap justify-center">
             {categories.map((cat, i) => (
               <button
                 key={i}
@@ -61,6 +61,23 @@ const Pricing = () => {
                 <span className="relative z-10">{t(cat.category)}</span>
               </button>
             ))}
+            <button
+              onClick={() => setActiveTab(categories.length)}
+              className={`relative font-body text-[11px] md:text-xs tracking-wide px-4 md:px-6 py-2 md:py-2.5 rounded-sm transition-colors duration-300 ${
+                isPackagesTab
+                  ? "text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {isPackagesTab && (
+                <motion.div
+                  layoutId="pricing-tab"
+                  className="absolute inset-0 bg-primary rounded-sm"
+                  transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                />
+              )}
+              <span className="relative z-10">{t(packages.category)}</span>
+            </button>
           </div>
         </motion.div>
 
