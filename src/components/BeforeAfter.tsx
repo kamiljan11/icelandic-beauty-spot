@@ -6,6 +6,10 @@ import beforeFacialImg from "@/assets/before-facial.jpg";
 import afterFacialImg from "@/assets/after-facial.jpg";
 import afterNailsImg from "@/assets/after-nails.jpg";
 import beforeNailsImg from "@/assets/before-nails.jpg";
+import beforeBodyImg from "@/assets/before-body.jpg";
+import afterBodyImg from "@/assets/after-body.jpg";
+import beforeSkincareImg from "@/assets/before-skincare.jpg";
+import afterSkincareImg from "@/assets/after-skincare.jpg";
 
 const translations = {
   subtitle: { en: "Results", is: "Árangur", pl: "Rezultaty" },
