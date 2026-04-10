@@ -1,4 +1,4 @@
-import { Gift, Snowflake, Sun, Sparkles } from "lucide-react";
+import { Gift, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
@@ -33,27 +33,6 @@ const translations = {
         price: "50.000 kr.",
         description: { en: "Full day of pampering with multiple treatments", is: "Heill dagur af dekri með mörgum meðferðum", pl: "Cały dzień rozpieszczania z wieloma zabiegami" },
         icon: Sparkles,
-      },
-    ],
-  },
-  packages: {
-    title: { en: "Seasonal Packages", is: "Árstíðapakkar", pl: "Pakiety sezonowe" },
-    items: [
-      {
-        name: { en: "Winter Glow Package", is: "Vetrarljómi pakki", pl: "Pakiet Zimowy Blask" },
-        price: "34.900 kr.",
-        original: "42.600 kr.",
-        description: { en: "Hot stone massage + Geothermal facial + Icelandic salt scrub", is: "Heitt steinanudd + Jarðhita andlitsmeðferð + Íslenskt saltskrúbb", pl: "Masaż gorącymi kamieniami + Zabieg geotermalny + Peeling solny" },
-        icon: Snowflake,
-        tag: { en: "Save 18%", is: "Sparaðu 18%", pl: "Oszczędź 18%" },
-      },
-      {
-        name: { en: "Midnight Sun Ritual", is: "Miðnætursólarhelgi", pl: "Rytuał Północnego Słońca" },
-        price: "44.900 kr.",
-        original: "56.700 kr.",
-        description: { en: "Full body treatment + Anti-aging luxury facial + Natural manicure", is: "Heildar líkamsmeðferð + Anti-aging lúxus andlitsmeðferð + Náttúruleg handleggur", pl: "Pełny zabieg na ciało + Luksusowy anti-aging + Naturalny manicure" },
-        icon: Sun,
-        tag: { en: "Save 21%", is: "Sparaðu 21%", pl: "Oszczędź 21%" },
       },
     ],
   },
@@ -120,46 +99,6 @@ const GiftCards = () => {
                     }`}
                   >
                     {t({ en: "Buy gift card", is: "Kaupa gjafakort", pl: "Kup kartę" })}
-                  </button>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
-
-        {/* Seasonal Packages */}
-        <motion.div initial="hidden" whileInView="visible" viewport={viewportConfig} variants={staggerContainer}>
-          <h3 className="font-display text-xl md:text-2xl font-medium text-foreground mb-5 md:mb-8 text-center">
-            {t(translations.packages.title)}
-          </h3>
-          <div className="flex md:grid md:grid-cols-2 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
-            {translations.packages.items.map((pkg, i) => {
-              const Icon = pkg.icon;
-              return (
-                <motion.div
-                  key={i}
-                  variants={fadeInUp}
-                  className="relative p-6 md:p-8 rounded-sm border border-border bg-card hover:-translate-y-1 hover:shadow-lg transition-all duration-300 min-w-[80vw] md:min-w-0 snap-center"
-                >
-                  <div className="absolute top-3 md:top-4 right-3 md:right-4 bg-gold/15 text-gold font-body text-[10px] md:text-xs font-semibold px-2 md:px-3 py-1 rounded-sm">
-                    {t(pkg.tag)}
-                  </div>
-                  <Icon size={20} className="text-primary mb-3 md:mb-4" />
-                  <h4 className="font-display text-lg md:text-xl font-medium text-foreground mb-2">
-                    {t(pkg.name)}
-                  </h4>
-                  <div className="flex items-baseline gap-2 md:gap-3 mb-2 md:mb-3">
-                    <span className="font-display text-xl md:text-2xl font-medium text-primary">{pkg.price}</span>
-                    <span className="font-body text-xs md:text-sm text-muted-foreground line-through">{pkg.original}</span>
-                  </div>
-                  <p className="font-body text-xs md:text-sm text-muted-foreground leading-relaxed mb-4 md:mb-6">
-                    {t(pkg.description)}
-                  </p>
-                  <button
-                    onClick={showDemo}
-                    className="inline-block bg-primary text-primary-foreground px-5 md:px-6 py-2 md:py-2.5 rounded-sm font-body text-xs md:text-sm tracking-wide hover:opacity-90 transition-opacity"
-                  >
-                    {t({ en: "Book package", is: "Bóka pakka", pl: "Zarezerwuj pakiet" })}
                   </button>
                 </motion.div>
               );
