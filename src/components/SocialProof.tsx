@@ -100,9 +100,6 @@ const SocialProof = () => {
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.3 }}
               >
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.3 }}
-              >
                 <img
                   src={img.src}
                   alt={img.alt}
