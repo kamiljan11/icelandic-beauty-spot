@@ -85,7 +85,7 @@ const BeforeAfter = () => {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
+          className="flex md:grid md:grid-cols-4 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
@@ -94,7 +94,7 @@ const BeforeAfter = () => {
           {translations.items.map((item, i) => {
             const pos = sliderPos[i] ?? 50;
             return (
-              <motion.div key={i} variants={fadeInUp} className="group">
+              <motion.div key={i} variants={fadeInUp} className="group min-w-[70vw] md:min-w-0 snap-center">
                 <div className="relative overflow-hidden rounded-sm aspect-square mb-3 md:mb-4">
                   <img
                     src={item.after}
