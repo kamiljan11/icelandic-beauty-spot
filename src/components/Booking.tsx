@@ -1,17 +1,41 @@
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
 import { useDemo } from "@/hooks/useDemo";
+import { useBooking } from "@/hooks/useBooking";
 
 const Booking = () => {
   const { t } = useLanguage();
   const { showDemo } = useDemo();
+  const { selectedService, clearService } = useBooking();
+  const selectRef = useRef<HTMLSelectElement>(null);
   const b = translations.booking;
 
   const treatmentOptions = translations.pricing.categories.flatMap((cat) =>
     cat.items.map((item) => t(item.name))
   );
+
+  // Pre-select treatment when bookService is called
+  useEffect(() => {
+    if (selectedService && selectRef.current) {
+      // Find best match in options
+      const match = treatmentOptions.find(
+        (opt) => opt.toLowerCase() === selectedService.toLowerCase()
+      );
+      if (match) {
+        selectRef.current.value = match;
+      } else {
+        // Partial match
+        const partial = treatmentOptions.find((opt) =>
+          opt.toLowerCase().includes(selectedService.toLowerCase()) ||
+          selectedService.toLowerCase().includes(opt.toLowerCase())
+        );
+        if (partial) selectRef.current.value = partial;
+      }
+    }
+  }, [selectedService, treatmentOptions]);
 
   return (
     <section id="booking" className="py-16 md:py-32 bg-sage-light relative overflow-hidden">
@@ -39,7 +63,7 @@ const Booking = () => {
           whileInView="visible"
           viewport={viewportConfig}
           variants={staggerContainer}
-          onSubmit={(e) => { e.preventDefault(); showDemo(); }}
+          onSubmit={(e) => { e.preventDefault(); showDemo(); clearService(); }}
         >
           <motion.div variants={fadeInUp}>
             <label className="font-body text-[10px] md:text-xs text-muted-foreground block mb-1">{t(b.name)}</label>
@@ -67,7 +91,10 @@ const Booking = () => {
           </motion.div>
           <motion.div variants={fadeInUp}>
             <label className="font-body text-[10px] md:text-xs text-muted-foreground block mb-1">{t(b.treatment)}</label>
-            <select className="w-full bg-background border border-border rounded-sm px-3 md:px-4 py-2.5 md:py-3 font-body text-xs md:text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-primary transition-shadow">
+            <select
+              ref={selectRef}
+              className="w-full bg-background border border-border rounded-sm px-3 md:px-4 py-2.5 md:py-3 font-body text-xs md:text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-primary transition-shadow"
+            >
               <option value="">{t(b.treatmentPlaceholder)}</option>
               {treatmentOptions.map((opt) => (
                 <option key={opt}>{opt}</option>

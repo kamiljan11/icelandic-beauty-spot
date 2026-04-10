@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
-import { useDemo } from "@/hooks/useDemo";
+import { useBooking } from "@/hooks/useBooking";
 
 const Pricing = () => {
   const { t } = useLanguage();
-  const { showDemo } = useDemo();
+  const { bookService } = useBooking();
   const [activeTab, setActiveTab] = useState(0);
   const categories = translations.pricing.categories;
 
@@ -74,9 +74,8 @@ const Pricing = () => {
               {categories[activeTab].items.map((item, ii) => (
                 <motion.div
                   key={ii}
-                  className="group flex items-center gap-4 py-4 md:py-5 cursor-pointer"
-                  onClick={showDemo}
-                  whileHover={{ x: 6 }}
+                  className="group flex items-center gap-3 md:gap-4 py-4 md:py-5"
+                  whileHover={{ x: 4 }}
                   transition={{ duration: 0.2 }}
                 >
                   {/* Number */}
@@ -84,15 +83,15 @@ const Pricing = () => {
                     {String(ii + 1).padStart(2, "0")}
                   </span>
 
-                  {/* Name & duration */}
+                  {/* Name */}
                   <div className="flex-1 min-w-0">
-                    <p className="font-body text-sm md:text-base font-medium text-foreground group-hover:text-primary transition-colors duration-200">
+                    <p className="font-body text-sm md:text-base font-medium text-foreground">
                       {t(item.name)}
                     </p>
                   </div>
 
                   {/* Duration pill */}
-                  <span className="font-body text-[10px] md:text-xs text-muted-foreground bg-muted/50 px-2.5 py-1 rounded-full shrink-0">
+                  <span className="font-body text-[10px] md:text-xs text-muted-foreground bg-muted/50 px-2.5 py-1 rounded-full shrink-0 hidden sm:inline">
                     {item.duration}
                   </span>
 
@@ -100,30 +99,42 @@ const Pricing = () => {
                   <span className="font-display text-base md:text-lg text-primary font-medium shrink-0">
                     {item.price}
                   </span>
+
+                  {/* Book button */}
+                  <button
+                    onClick={() => bookService(t(item.name))}
+                    className="font-body text-[10px] md:text-xs tracking-wide bg-primary/10 text-primary px-3 md:px-4 py-1.5 md:py-2 rounded-sm hover:bg-primary hover:text-primary-foreground transition-colors shrink-0"
+                  >
+                    {t({ en: "Book", is: "Bóka", pl: "Rezerwuj" })}
+                  </button>
                 </motion.div>
               ))}
             </div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Book CTA */}
+        {/* Bottom CTA */}
         <motion.div
-          className="text-center mt-8 md:mt-10"
+          className="text-center mt-8 md:mt-10 space-y-3"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
           variants={fadeInUp}
         >
           <button
-            onClick={showDemo}
-            className="font-body text-xs md:text-sm tracking-wide text-primary hover:text-primary/80 transition-colors underline underline-offset-4 decoration-primary/30"
+            onClick={() => bookService("")}
+            className="bg-primary text-primary-foreground px-8 py-3 md:py-3.5 rounded-sm font-body text-xs md:text-sm tracking-wide hover:opacity-90 transition-opacity"
           >
+            {t({ en: "Book a treatment", is: "Bóka meðferð", pl: "Zarezerwuj zabieg" })}
+          </button>
+          <p className="font-body text-[10px] md:text-xs text-muted-foreground/70 flex items-center justify-center gap-1.5">
+            <span className="text-primary">✓</span>
             {t({
               en: "All prices include VAT · Payment on-site",
               is: "Öll verð innihalda VSK · Greitt á staðnum",
               pl: "Wszystkie ceny zawierają VAT · Płatność na miejscu",
             })}
-          </button>
+          </p>
         </motion.div>
       </div>
     </section>

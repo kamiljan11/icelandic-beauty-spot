@@ -6,12 +6,14 @@ import landscapeImg from "@/assets/iceland-landscape.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
+import { useBooking } from "@/hooks/useBooking";
 
 const icons = [Sparkles, Droplets, Leaf];
 const images = [skincareImg, salonImg, landscapeImg];
 
 const Services = () => {
   const { t } = useLanguage();
+  const { bookService } = useBooking();
 
   return (
     <section id="services" className="py-16 md:py-32 bg-background">
@@ -31,7 +33,6 @@ const Services = () => {
           </h2>
         </motion.div>
 
-        {/* Mobile: horizontal scroll, Desktop: grid */}
         <motion.div
           className="flex md:grid md:grid-cols-3 gap-5 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide"
           initial="hidden"
@@ -45,7 +46,7 @@ const Services = () => {
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="group cursor-pointer min-w-[75vw] md:min-w-0 snap-center"
+                className="group min-w-[75vw] md:min-w-0 snap-center"
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.3 }}
               >
@@ -65,15 +66,20 @@ const Services = () => {
                     {t(service.title)}
                   </h3>
                 </div>
-                <p className="font-body text-xs md:text-sm text-muted-foreground leading-relaxed">
+                <p className="font-body text-xs md:text-sm text-muted-foreground leading-relaxed mb-4">
                   {t(service.description)}
                 </p>
+                <button
+                  onClick={() => bookService(t(service.title))}
+                  className="font-body text-[11px] md:text-xs tracking-wide border border-primary/30 text-primary px-5 py-2 rounded-sm hover:bg-primary hover:text-primary-foreground transition-colors"
+                >
+                  {t({ en: "Book now", is: "Bóka núna", pl: "Zarezerwuj" })}
+                </button>
               </motion.div>
             );
           })}
         </motion.div>
 
-        {/* Scroll indicator dots - mobile only */}
         <div className="flex justify-center gap-1.5 mt-3 md:hidden">
           {translations.services.items.map((_, i) => (
             <div key={i} className="w-1.5 h-1.5 rounded-full bg-primary/30" />
