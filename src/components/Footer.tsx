@@ -1,6 +1,7 @@
 import { Instagram, Facebook, MapPin, Phone, Mail } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
+import { useDemo } from "@/hooks/useDemo";
 
 const footerTranslations = {
   nav: { en: "Navigation", is: "Leiðsögn", pl: "Nawigacja" },
@@ -12,6 +13,7 @@ const footerTranslations = {
 
 const Footer = () => {
   const { t } = useLanguage();
+  const { showDemo } = useDemo();
 
   return (
     <footer className="bg-volcanic pt-10 md:pt-16 pb-6 md:pb-8">
@@ -27,24 +29,22 @@ const Footer = () => {
               Laugavegur 42, 101 Reykjavík
             </p>
             <div className="flex items-center gap-3">
-              <a
-                href="https://instagram.com/eldfjallbeauty"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={showDemo}
                 className="w-8 h-8 rounded-full bg-cream/10 flex items-center justify-center hover:bg-cream/20 transition-colors"
-                aria-label="Instagram"
+                aria-label="Instagram (demo)"
+                title="Demo — Instagram page coming soon"
               >
                 <Instagram size={14} className="text-cream/70" />
-              </a>
-              <a
-                href="https://facebook.com/eldfjallbeauty"
-                target="_blank"
-                rel="noopener noreferrer"
+              </button>
+              <button
+                onClick={showDemo}
                 className="w-8 h-8 rounded-full bg-cream/10 flex items-center justify-center hover:bg-cream/20 transition-colors"
-                aria-label="Facebook"
+                aria-label="Facebook (demo)"
+                title="Demo — Facebook page coming soon"
               >
                 <Facebook size={14} className="text-cream/70" />
-              </a>
+              </button>
             </div>
           </div>
 
