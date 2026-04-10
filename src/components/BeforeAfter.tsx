@@ -85,7 +85,7 @@ const BeforeAfter = () => {
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-2 gap-6 md:gap-12"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
