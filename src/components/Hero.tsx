@@ -5,6 +5,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { fadeInUp, staggerContainer } from "@/hooks/useScrollAnimation";
 import { useDemo } from "@/hooks/useDemo";
+import SteamWisp from "@/components/svg/SteamWisp";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -53,6 +54,9 @@ const Hero = () => {
             {t(translations.hero.title1)}
             <br />
             <span className="italic font-light">{t(translations.hero.title2)}</span>
+          </motion.h1>
+          <motion.div variants={fadeInUp}>
+            <SteamWisp className="text-cream/40 mb-4 md:mb-6" />
           </motion.h1>
           <motion.p
             variants={fadeInUp}
