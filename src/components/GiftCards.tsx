@@ -6,7 +6,12 @@ import { useDemo } from "@/hooks/useDemo";
 
 const translations = {
   subtitle: { en: "Gift Cards & Packages", is: "Gjafakort og pakkar", pl: "Karty podarunkowe i pakiety" },
-  title: { en: "The perfect gift", is: "Hið fullkomna gjöf", pl: "Idealny prezent" },
+  title: { en: "The perfect gift", is: "Fullkomna gjöfin", pl: "Idealny prezent" },
+  description: {
+    en: "For yourself, your loved ones, or someone who deserves a moment of calm",
+    is: "Fyrir þig, þína nánustu, eða einhvern sem á skilið augnablik af ró",
+    pl: "Dla siebie, bliskich lub kogoś, kto zasługuje na chwilę spokoju",
+  },
   giftCards: {
     title: { en: "Gift Cards", is: "Gjafakort", pl: "Karty podarunkowe" },
     items: [
@@ -71,9 +76,12 @@ const GiftCards = () => {
           <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-primary mb-2 md:mb-3">
             {t(translations.subtitle)}
           </p>
-          <h2 className="font-display text-3xl md:text-5xl font-light text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl font-light text-foreground mb-3 md:mb-4">
             {t(translations.title)}
           </h2>
+          <p className="font-body text-xs md:text-sm text-muted-foreground max-w-md mx-auto">
+            {t(translations.description)}
+          </p>
         </motion.div>
 
         {/* Gift Cards */}
