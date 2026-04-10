@@ -6,6 +6,10 @@ import beforeFacialImg from "@/assets/before-facial.jpg";
 import afterFacialImg from "@/assets/after-facial.jpg";
 import afterNailsImg from "@/assets/after-nails.jpg";
 import beforeNailsImg from "@/assets/before-nails.jpg";
+import beforeBodyImg from "@/assets/before-body.jpg";
+import afterBodyImg from "@/assets/after-body.jpg";
+import beforeSkincareImg from "@/assets/before-skincare.jpg";
+import afterSkincareImg from "@/assets/after-skincare.jpg";
 
 const translations = {
   subtitle: { en: "Results", is: "Árangur", pl: "Rezultaty" },
@@ -30,6 +34,26 @@ const translations = {
       },
       before: beforeNailsImg,
       after: afterNailsImg,
+    },
+    {
+      title: { en: "Volcanic Body Scrub", is: "Eldfjallalíkamsskrúbbur", pl: "Wulkaniczny peeling ciała" },
+      description: {
+        en: "Deep exfoliation with volcanic ash and natural oils for silky smooth skin",
+        is: "Djúp húðflæðing með eldfjallaosku og náttúrulegum olíum fyrir silkimjúka húð",
+        pl: "Głęboki peeling z popiołem wulkanicznym i naturalnymi olejkami dla jedwabiście gładkiej skóry",
+      },
+      before: beforeBodyImg,
+      after: afterBodyImg,
+    },
+    {
+      title: { en: "Radiance Skincare", is: "Ljómandi húðmeðferð", pl: "Zabieg rozświetlający" },
+      description: {
+        en: "Brightening treatment with Icelandic mineral water and organic botanicals",
+        is: "Birtumeðferð með íslensku steinefnavatni og lífrænum jurtum",
+        pl: "Zabieg rozświetlający z islandzką wodą mineralną i organicznymi ekstraktami roślinnymi",
+      },
+      before: beforeSkincareImg,
+      after: afterSkincareImg,
     },
   ],
 };
