@@ -8,8 +8,10 @@ import { useBooking } from "@/hooks/useBooking";
 const Pricing = () => {
   const { t } = useLanguage();
   const { bookService } = useBooking();
-  const [activeTab, setActiveTab] = useState(0);
   const categories = translations.pricing.categories;
+  const packages = translations.pricing.packages;
+  const totalTabs = categories.length + 1;
+  const isPackagesTab = activeTab === categories.length;
 
   return (
     <section id="pricing" className="py-16 md:py-32 bg-background">
