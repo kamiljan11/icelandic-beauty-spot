@@ -62,23 +62,23 @@ const translations = {
 };
 
 const MobileCard = ({ item, index, t }: { item: typeof translations.items[0]; index: number; t: (obj: Record<string, string>) => string }) => {
-  const [showAfter, setShowAfter] = useState(false);
+  const [showBefore, setShowBefore] = useState(false);
 
   return (
     <motion.div variants={fadeInUp} className="flex gap-4 items-start">
       <button
-        onClick={() => setShowAfter(!showAfter)}
+        onClick={() => setShowBefore(!showBefore)}
         className="relative w-32 h-32 shrink-0 rounded-sm overflow-hidden"
         aria-label={t(translations.tapHint)}
       >
         <img
-          src={showAfter ? item.after : item.before}
-          alt={`${t(item.title)} - ${showAfter ? "after" : "before"}`}
+          src={showBefore ? item.before : item.after}
+          alt={`${t(item.title)} - ${showBefore ? "before" : "after"}`}
           loading="lazy"
           className="w-full h-full object-cover transition-opacity duration-300"
         />
-        <div className={`absolute top-1.5 left-1.5 text-[9px] font-body px-1.5 py-0.5 rounded-sm ${showAfter ? "bg-primary/70 text-primary-foreground" : "bg-volcanic/70 text-cream"}`}>
-          {showAfter ? t(translations.after) : t(translations.before)}
+        <div className={`absolute top-1.5 left-1.5 text-[9px] font-body px-1.5 py-0.5 rounded-sm ${showBefore ? "bg-volcanic/70 text-cream" : "bg-primary/70 text-primary-foreground"}`}>
+          {showBefore ? t(translations.before) : t(translations.after)}
         </div>
         <div className="absolute bottom-1.5 inset-x-0 text-center">
           <span className="text-[8px] font-body text-cream/80 bg-volcanic/50 px-1.5 py-0.5 rounded-full">
