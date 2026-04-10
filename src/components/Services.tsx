@@ -2,14 +2,14 @@ import { Droplets, Sparkles, Leaf } from "lucide-react";
 import { motion } from "framer-motion";
 import skincareImg from "@/assets/treatment-skincare.jpg";
 import salonImg from "@/assets/salon-interior.jpg";
-import landscapeImg from "@/assets/iceland-landscape.jpg";
+import skincareProductsImg from "@/assets/skincare-products.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
 import { useBooking } from "@/hooks/useBooking";
 
 const icons = [Sparkles, Droplets, Leaf];
-const images = [skincareImg, salonImg, landscapeImg];
+const images = [skincareImg, salonImg, skincareProductsImg];
 
 const Services = () => {
   const { t } = useLanguage();
