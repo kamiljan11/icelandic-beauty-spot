@@ -1,5 +1,6 @@
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { DemoProvider, useDemo } from "@/hooks/useDemo";
+import { BookingProvider } from "@/hooks/useBooking";
 import DemoDialog from "@/components/DemoDialog";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -47,7 +48,9 @@ const Index = () => {
   return (
     <LanguageProvider>
       <DemoProvider>
-        <AppContent />
+        <BookingProvider>
+          <AppContent />
+        </BookingProvider>
       </DemoProvider>
     </LanguageProvider>
   );
