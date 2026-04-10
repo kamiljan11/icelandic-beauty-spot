@@ -133,6 +133,40 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* Self-promo strip */}
+      <div className="border-t border-cream/5 mt-6 md:mt-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-6 py-4 md:py-5 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+          <p className="font-body text-[10px] md:text-xs text-cream/25">
+            {t({
+              en: "Website crafted by",
+              is: "Vefsíða hönnuð af",
+              pl: "Strona stworzona przez",
+            })}{" "}
+            <a
+              href="https://businessautopilot.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold/50 hover:text-gold/80 transition-colors font-medium"
+            >
+              Business Autopilot
+            </a>
+          </p>
+          <span className="hidden sm:inline text-cream/10">·</span>
+          <a
+            href="https://businessautopilot.co"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body text-[10px] md:text-xs text-cream/20 hover:text-gold/60 transition-colors"
+          >
+            {t({
+              en: "Want a website like this? →",
+              is: "Viltu vefsíðu eins og þessa? →",
+              pl: "Chcesz taką stronę? →",
+            })}
+          </a>
+        </div>
+      </div>
     </footer>
   );
 };
