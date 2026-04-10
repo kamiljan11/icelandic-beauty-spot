@@ -142,15 +142,18 @@ const Services = () => {
       {/* Ingredients strip */}
       <div className="py-12 md:py-20 bg-volcanic">
         <div className="max-w-6xl mx-auto px-5 md:px-6">
-          <motion.p
-            className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-gold mb-6 md:mb-10 text-center"
+          <motion.div
+            className="flex flex-col items-center mb-6 md:mb-10"
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
             variants={fadeInUp}
           >
-            {t(ingredientTranslations.subtitle)}
-          </motion.p>
+            <HotSpring className="text-gold mb-2" />
+            <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-gold text-center">
+              {t(ingredientTranslations.subtitle)}
+            </p>
+          </motion.div>
 
           <motion.div
             className="flex md:grid md:grid-cols-4 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide"

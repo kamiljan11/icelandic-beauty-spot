@@ -3,6 +3,7 @@ import landscapeImg from "@/assets/iceland-landscape.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { fadeInUp, slideInLeft, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
+import LeafAccent from "@/components/svg/LeafAccent";
 
 const About = () => {
   const { t } = useLanguage();
@@ -39,8 +40,12 @@ const About = () => {
             viewport={viewportConfig}
             variants={staggerContainer}
           >
-            <motion.p variants={fadeInUp} className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-primary mb-2 md:mb-3">
-              {t(translations.about.subtitle)}
+            <motion.div variants={fadeInUp} className="flex items-center gap-2 mb-2 md:mb-3">
+              <LeafAccent className="text-primary w-4 h-6 md:w-5 md:h-8" />
+              <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-primary">
+                {t(translations.about.subtitle)}
+              </p>
+            </motion.div>
             </motion.p>
             <motion.h2 variants={fadeInUp} className="font-display text-3xl md:text-5xl font-light text-foreground mb-4 md:mb-6">
               {t(translations.about.title1)}
