@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Globe, Camera, BarChart3, Zap } from "lucide-react";
+import { Globe, Camera, Leaf, Zap } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
@@ -19,7 +19,7 @@ const ctaTranslations = {
   features: [
     { icon: Globe, label: { en: "Locally Sourced", is: "Staðbundið", pl: "Lokalne składniki" } },
     { icon: Camera, label: { en: "Real Results", is: "Raunverulegur árangur", pl: "Prawdziwe efekty" } },
-    { icon: BarChart3, label: { en: "No Contracts", is: "Engar skuldbindingar", pl: "Bez umów" } },
+    { icon: Leaf, label: { en: "100% Natural", is: "100% náttúrulegt", pl: "100% naturalne" } },
     { icon: Zap, label: { en: "Same-Week Booking", is: "Bókun í sömu viku", pl: "Rezerwacja w tym tygodniu" } },
   ],
   price: { en: "First facial from 12.900 kr.", is: "Fyrsta andlitsmeðferð frá 12.900 kr.", pl: "Pierwszy zabieg od 12 900 kr." },
