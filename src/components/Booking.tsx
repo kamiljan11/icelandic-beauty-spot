@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
+import { useDemo } from "@/hooks/useDemo";
 
 const Booking = () => {
   const { t } = useLanguage();
+  const { showDemo } = useDemo();
   const b = translations.booking;
 
   const treatmentOptions = translations.pricing.categories.flatMap((cat) =>
@@ -37,6 +39,7 @@ const Booking = () => {
           whileInView="visible"
           viewport={viewportConfig}
           variants={staggerContainer}
+          onSubmit={(e) => { e.preventDefault(); showDemo(); }}
         >
           <motion.div variants={fadeInUp}>
             <label className="font-body text-[10px] md:text-xs text-muted-foreground block mb-1">{t(b.name)}</label>
@@ -81,7 +84,7 @@ const Booking = () => {
           </motion.div>
           <motion.div variants={fadeInUp}>
             <button
-              type="button"
+              type="submit"
               className="w-full bg-primary text-primary-foreground px-8 py-3 md:py-3.5 rounded-sm font-body text-xs md:text-sm tracking-wide hover:opacity-90 transition-opacity"
             >
               {t(b.submit)}

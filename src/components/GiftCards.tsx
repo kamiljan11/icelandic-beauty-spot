@@ -2,6 +2,7 @@ import { Gift, Snowflake, Sun, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
+import { useDemo } from "@/hooks/useDemo";
 
 const translations = {
   subtitle: { en: "Gift Cards & Packages", is: "Gjafakort og pakkar", pl: "Karty podarunkowe i pakiety" },
@@ -55,6 +56,7 @@ const translations = {
 
 const GiftCards = () => {
   const { t } = useLanguage();
+  const { showDemo } = useDemo();
 
   return (
     <section className="py-16 md:py-32 bg-background">
@@ -74,7 +76,7 @@ const GiftCards = () => {
           </h2>
         </motion.div>
 
-        {/* Gift Cards - horizontal scroll on mobile */}
+        {/* Gift Cards */}
         <motion.div className="mb-12 md:mb-20" initial="hidden" whileInView="visible" viewport={viewportConfig} variants={staggerContainer}>
           <h3 className="font-display text-xl md:text-2xl font-medium text-foreground mb-5 md:mb-8 text-center">
             {t(translations.giftCards.title)}
@@ -103,14 +105,14 @@ const GiftCards = () => {
                   <p className={`font-body text-xs md:text-sm leading-relaxed ${card.featured ? "text-cream/70" : "text-muted-foreground"}`}>
                     {t(card.description)}
                   </p>
-                  <a
-                    href="#booking"
+                  <button
+                    onClick={showDemo}
                     className={`inline-block mt-4 md:mt-6 px-5 md:px-6 py-2 md:py-2.5 rounded-sm font-body text-xs md:text-sm tracking-wide transition-opacity hover:opacity-90 ${
                       card.featured ? "bg-gold text-volcanic" : "bg-primary text-primary-foreground"
                     }`}
                   >
                     {t({ en: "Buy gift card", is: "Kaupa gjafakort", pl: "Kup kartę" })}
-                  </a>
+                  </button>
                 </motion.div>
               );
             })}
@@ -145,12 +147,12 @@ const GiftCards = () => {
                   <p className="font-body text-xs md:text-sm text-muted-foreground leading-relaxed mb-4 md:mb-6">
                     {t(pkg.description)}
                   </p>
-                  <a
-                    href="#booking"
+                  <button
+                    onClick={showDemo}
                     className="inline-block bg-primary text-primary-foreground px-5 md:px-6 py-2 md:py-2.5 rounded-sm font-body text-xs md:text-sm tracking-wide hover:opacity-90 transition-opacity"
                   >
                     {t({ en: "Book package", is: "Bóka pakka", pl: "Zarezerwuj pakiet" })}
-                  </a>
+                  </button>
                 </motion.div>
               );
             })}
