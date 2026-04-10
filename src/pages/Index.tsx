@@ -5,7 +5,6 @@ import DemoDialog from "@/components/DemoDialog";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-import Ingredients from "@/components/Ingredients";
 import About from "@/components/About";
 import Team from "@/components/Team";
 import BeforeAfter from "@/components/BeforeAfter";
@@ -25,7 +24,6 @@ const AppContent = () => {
       <Navbar />
       <Hero />
       <Services />
-      <Ingredients />
       <About />
       <Team />
       <BeforeAfter />
