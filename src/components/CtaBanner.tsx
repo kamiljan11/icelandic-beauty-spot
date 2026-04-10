@@ -5,26 +5,26 @@ import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAni
 import { useDemo } from "@/hooks/useDemo";
 
 const translations = {
-  subtitle: { en: "ELDFJALL BEAUTY", is: "ELDFJALL BEAUTY", pl: "ELDFJALL BEAUTY" },
-  title1: { en: "Want to Experience", is: "Viltu upplifa", pl: "Chcesz doświadczyć" },
-  title2: { en: "True Icelandic Beauty?", is: "sanna íslenska fegurð?", pl: "prawdziwego islandzkiego piękna?" },
+  subtitle: { en: "YOUR SKIN DESERVES ICELAND", is: "HÚÐIN ÞÍN VERÐSKULDAR ÍSLAND", pl: "TWOJA SKÓRA ZASŁUGUJE NA ISLANDIĘ" },
+  title1: { en: "One Visit.", is: "Ein heimsókn.", pl: "Jedna wizyta." },
+  title2: { en: "You'll Feel the Difference.", is: "Þú munt finna muninn.", pl: "Poczujesz różnicę." },
   description: {
-    en: "We offer personalized treatments using geothermal water, volcanic minerals and organic Icelandic ingredients. Everything tailored to your skin. One visit. Pure transformation.",
-    is: "Við bjóðum upp á persónulegar meðferðir með jarðhitavatni, eldfjallasteinefnum og lífrænni íslenskri náttúru. Allt sérstaklega hannað fyrir þína húð. Ein heimsókn. Hrein umbreyting.",
-    pl: "Oferujemy spersonalizowane zabiegi z wodą geotermalną, minerałami wulkanicznymi i organicznymi islandzkimi składnikami. Wszystko dopasowane do Twojej skóry. Jedna wizyta. Czysta transformacja.",
+    en: "No subscriptions, no pressure, no upselling. Just Sigríður, volcanic minerals, geothermal water, and 90 minutes of your time. If you don't see a difference, we won't charge you.",
+    is: "Engin áskrift, enginn þrýstingur, engin uppselja. Bara Sigríður, eldfjallasteinefni, jarðhitavatn og 90 mínútur af þínum tíma. Ef þú sérð ekki mun munum við ekki rukka þig.",
+    pl: "Bez abonamentów, bez presji, bez wciskania. Tylko Sigríður, minerały wulkaniczne, woda geotermalna i 90 minut Twojego czasu. Jeśli nie zobaczysz różnicy, nie zapłacisz.",
   },
   features: [
-    { icon: Globe, label: { en: "Natural Ingredients", is: "Náttúruleg efni", pl: "Naturalne składniki" } },
-    { icon: Camera, label: { en: "Luxury Experience", is: "Lúxus upplifun", pl: "Luksusowe doznania" } },
-    { icon: BarChart3, label: { en: "Proven Results", is: "Sannað árangur", pl: "Udowodnione efekty" } },
-    { icon: Zap, label: { en: "Instant Glow", is: "Tafarlaus birta", pl: "Natychmiastowy blask" } },
+    { icon: Globe, label: { en: "Locally Sourced", is: "Staðbundið", pl: "Lokalne składniki" } },
+    { icon: Camera, label: { en: "Real Results", is: "Raunverulegur árangur", pl: "Prawdziwe efekty" } },
+    { icon: BarChart3, label: { en: "No Contracts", is: "Engar skuldbindingar", pl: "Bez umów" } },
+    { icon: Zap, label: { en: "Same-Week Booking", is: "Bókun í sömu viku", pl: "Rezerwacja w tym tygodniu" } },
   ],
-  cta: { en: "BOOK NOW", is: "BÓKA TÍMA", pl: "UMÓW SIĘ" },
-  price: { en: "From only 5.900 kr./treatment", is: "Frá aðeins 5.900 kr./meðferð", pl: "Już od 5.900 kr./zabieg" },
+  cta: { en: "BOOK YOUR FIRST VISIT", is: "BÓKAÐU FYRSTU HEIMSÓKNINA", pl: "UMÓW PIERWSZĄ WIZYTĘ" },
+  price: { en: "First facial from 12.900 kr.", is: "Fyrsta andlitsmeðferð frá 12.900 kr.", pl: "Pierwszy zabieg od 12 900 kr." },
   perks: {
-    en: "⚡ Same-week availability · Fully personalised · No commitments",
-    is: "⚡ Laus tími á vikunni · Fullkomlega persónulegt · Engar skuldbindingar",
-    pl: "⚡ Dostępność w tym tygodniu · W pełni spersonalizowane · Bez zobowiązań",
+    en: "⚡ Pay on-site · No deposit · Free skin consultation",
+    is: "⚡ Greitt á staðnum · Engin innborgun · Ókeypis húðráðgjöf",
+    pl: "⚡ Płatność na miejscu · Bez zaliczki · Bezpłatna konsultacja skóry",
   },
 };
 
