@@ -40,12 +40,12 @@ const Pricing = () => {
           viewport={viewportConfig}
           variants={fadeInUp}
         >
-          <div className="inline-flex bg-muted/50 rounded-sm p-1 gap-0.5 flex-wrap justify-center">
+          <div className="inline-flex bg-muted/50 rounded-sm p-1 gap-0.5 flex-wrap justify-center max-w-full">
             {categories.map((cat, i) => (
               <button
                 key={i}
                 onClick={() => setActiveTab(i)}
-                className={`relative font-body text-[11px] md:text-xs tracking-wide px-4 md:px-6 py-2 md:py-2.5 rounded-sm transition-colors duration-300 ${
+                className={`relative font-body text-[10px] md:text-xs tracking-wide px-3 md:px-6 py-1.5 md:py-2.5 rounded-sm transition-colors duration-300 ${
                   activeTab === i
                     ? "text-primary-foreground"
                     : "text-muted-foreground hover:text-foreground"
@@ -63,7 +63,7 @@ const Pricing = () => {
             ))}
             <button
               onClick={() => setActiveTab(categories.length)}
-              className={`relative font-body text-[11px] md:text-xs tracking-wide px-4 md:px-6 py-2 md:py-2.5 rounded-sm transition-colors duration-300 ${
+              className={`relative font-body text-[10px] md:text-xs tracking-wide px-3 md:px-6 py-1.5 md:py-2.5 rounded-sm transition-colors duration-300 ${
                 isPackagesTab
                   ? "text-primary-foreground"
                   : "text-muted-foreground hover:text-foreground"
@@ -95,7 +95,7 @@ const Pricing = () => {
                 {packages.items.map((item, ii) => (
                   <motion.div
                     key={ii}
-                    className="group flex items-center gap-3 md:gap-4 py-4 md:py-5"
+                    className="group flex flex-wrap md:flex-nowrap items-center gap-2 md:gap-4 py-3 md:py-5"
                     whileHover={{ x: 4 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -134,7 +134,7 @@ const Pricing = () => {
                 {categories[activeTab].items.map((item, ii) => (
                   <motion.div
                     key={ii}
-                    className="group flex items-center gap-3 md:gap-4 py-4 md:py-5"
+                    className="group flex flex-wrap md:flex-nowrap items-center gap-2 md:gap-4 py-3 md:py-5"
                     whileHover={{ x: 4 }}
                     transition={{ duration: 0.2 }}
                   >
