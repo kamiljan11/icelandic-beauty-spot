@@ -1,4 +1,4 @@
-import { Globe, Camera, BarChart3, Zap } from "lucide-react";
+import { Globe, Camera, Leaf, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
@@ -9,14 +9,14 @@ const translations = {
   title1: { en: "One Visit.", is: "Ein heimsókn.", pl: "Jedna wizyta." },
   title2: { en: "You'll Feel the Difference.", is: "Þú munt finna muninn.", pl: "Poczujesz różnicę." },
   description: {
-    en: "No subscriptions, no pressure, no upselling. Just Sigríður, volcanic minerals, geothermal water, and 90 minutes of your time. If you don't see a difference, we won't charge you.",
-    is: "Engin áskrift, enginn þrýstingur, engin uppselja. Bara Sigríður, eldfjallasteinefni, jarðhitavatn og 90 mínútur af þínum tíma. Ef þú sérð ekki mun munum við ekki rukka þig.",
-    pl: "Bez abonamentów, bez presji, bez wciskania. Tylko Sigríður, minerały wulkaniczne, woda geotermalna i 90 minut Twojego czasu. Jeśli nie zobaczysz różnicy, nie zapłacisz.",
+    en: "One treatment with Sigríður — volcanic minerals, geothermal water, and ingredients we source ourselves. 90 minutes, real results, nothing artificial.",
+    is: "Ein meðferð hjá Sigríði — eldfjallasteinefni, jarðhitavatn og hráefni sem við sækjum sjálf. 90 mínútur, raunverulegur árangur, ekkert tilbúið.",
+    pl: "Jeden zabieg u Sigríður — minerały wulkaniczne, woda geotermalna i składniki, które sami pozyskujemy. 90 minut, prawdziwe efekty, nic sztucznego.",
   },
   features: [
     { icon: Globe, label: { en: "Locally Sourced", is: "Staðbundið", pl: "Lokalne składniki" } },
     { icon: Camera, label: { en: "Real Results", is: "Raunverulegur árangur", pl: "Prawdziwe efekty" } },
-    { icon: BarChart3, label: { en: "No Contracts", is: "Engar skuldbindingar", pl: "Bez umów" } },
+    { icon: Leaf, label: { en: "100% Natural", is: "100% náttúrulegt", pl: "100% naturalne" } },
     { icon: Zap, label: { en: "Same-Week Booking", is: "Bókun í sömu viku", pl: "Rezerwacja w tym tygodniu" } },
   ],
   cta: { en: "BOOK YOUR FIRST VISIT", is: "BÓKAÐU FYRSTU HEIMSÓKNINA", pl: "UMÓW PIERWSZĄ WIZYTĘ" },
