@@ -2,6 +2,7 @@ import { Instagram, Star, Shield, Award, Leaf } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { fadeInUp, fadeIn, staggerContainer, viewportConfig, scaleIn } from "@/hooks/useScrollAnimation";
+import { useDemo } from "@/hooks/useDemo";
 import igProductsImg from "@/assets/ig-products.jpg";
 import igSalonImg from "@/assets/ig-salon.jpg";
 import igGeothermalImg from "@/assets/ig-geothermal.jpg";
@@ -33,6 +34,7 @@ const igImages = [
 
 const SocialProof = () => {
   const { t } = useLanguage();
+  const { showDemo } = useDemo();
 
   return (
     <section className="py-16 md:py-32 bg-card overflow-hidden">
@@ -91,12 +93,13 @@ const SocialProof = () => {
         <motion.div initial="hidden" whileInView="visible" viewport={viewportConfig} variants={fadeIn}>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-1.5 md:gap-2">
             {igImages.map((img, i) => (
-              <motion.a
+              <motion.button
                 key={i}
-                href="https://instagram.com/eldfjallbeauty"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative aspect-square overflow-hidden rounded-sm group"
+                onClick={showDemo}
+                className="relative aspect-square overflow-hidden rounded-sm group cursor-pointer"
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.3 }}
+              >
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.3 }}
               >
@@ -111,19 +114,17 @@ const SocialProof = () => {
                 <div className="absolute inset-0 bg-volcanic/0 group-hover:bg-volcanic/40 transition-colors duration-300 flex items-center justify-center">
                   <Instagram size={20} className="text-cream opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-              </motion.a>
+              </motion.button>
             ))}
           </div>
           <div className="text-center mt-4 md:mt-6">
-            <a
-              href="https://instagram.com/eldfjallbeauty"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={showDemo}
               className="inline-flex items-center gap-2 font-body text-xs md:text-sm text-primary hover:text-primary/80 transition-colors"
             >
               <Instagram size={14} />
               {t(translations.followUs)} — @eldfjallbeauty
-            </a>
+            </button>
           </div>
         </motion.div>
       </div>
