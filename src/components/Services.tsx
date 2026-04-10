@@ -13,6 +13,8 @@ import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAni
 import { useBooking } from "@/hooks/useBooking";
 import VolcanicDivider from "@/components/svg/VolcanicDivider";
 import HotSpring from "@/components/svg/HotSpring";
+import SteamBackground from "@/components/svg/SteamBackground";
+import MineralDots from "@/components/svg/MineralDots";
 
 const icons = [Sparkles, Droplets, Leaf];
 const images = [skincareImg, salonImg, skincareProductsImg];
@@ -66,8 +68,9 @@ const Services = () => {
   return (
     <section id="services">
       {/* Treatments */}
-      <div className="py-16 md:py-32 bg-background">
-        <div className="max-w-6xl mx-auto px-5 md:px-6">
+      <div className="relative py-16 md:py-32 bg-background overflow-hidden">
+        <MineralDots className="text-foreground" />
+        <div className="relative max-w-6xl mx-auto px-5 md:px-6">
           <motion.div
             className="text-center mb-8 md:mb-16"
             initial="hidden"
@@ -140,8 +143,9 @@ const Services = () => {
       </div>
 
       {/* Ingredients strip */}
-      <div className="py-12 md:py-20 bg-volcanic">
-        <div className="max-w-6xl mx-auto px-5 md:px-6">
+      <div className="relative py-12 md:py-20 bg-volcanic overflow-hidden">
+        <SteamBackground className="text-cream" />
+        <div className="relative max-w-6xl mx-auto px-5 md:px-6">
           <motion.div
             className="flex flex-col items-center mb-6 md:mb-10"
             initial="hidden"
