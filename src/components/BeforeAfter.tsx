@@ -6,8 +6,8 @@ import beforeFacialImg from "@/assets/before-facial.jpg";
 import afterFacialImg from "@/assets/after-facial.jpg";
 import afterNailsImg from "@/assets/after-nails.jpg";
 import beforeNailsImg from "@/assets/before-nails.jpg";
-import beforeBodyImg from "@/assets/before-body.jpg";
-import afterBodyImg from "@/assets/after-body.jpg";
+import beforeLashImg from "@/assets/before-lash.jpg";
+import afterLashImg from "@/assets/after-lash.jpg";
 import beforeMakeupImg from "@/assets/before-makeup.jpg";
 import afterMakeupImg from "@/assets/after-makeup.jpg";
 
@@ -52,8 +52,8 @@ const translations = {
         is: "Náttúruleg augnahársmeðferð fyrir opið og lyft útlit",
         pl: "Naturalne podkreślenie rzęs dla otwartego, uniesionego spojrzenia",
       },
-      before: beforeBodyImg,
-      after: afterBodyImg,
+      before: beforeLashImg,
+      after: afterLashImg,
     },
   ],
 };
