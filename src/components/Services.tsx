@@ -100,7 +100,7 @@ const Services = () => {
                 <motion.div
                   key={i}
                   variants={fadeInUp}
-                  className="group min-w-[75vw] md:min-w-0 snap-center"
+                  className="group min-w-[75vw] md:min-w-0 snap-center flex flex-col"
                   whileHover={{ y: -8 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -120,12 +120,12 @@ const Services = () => {
                       {t(service.title)}
                     </h3>
                   </div>
-                  <p className="font-body text-xs md:text-sm text-muted-foreground leading-relaxed mb-4">
+                  <p className="font-body text-xs md:text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
                     {t(service.description)}
                   </p>
                   <button
                     onClick={() => bookService(t(service.title))}
-                    className="font-body text-[11px] md:text-xs tracking-wide border border-primary/30 text-primary px-5 py-2 rounded-sm hover:bg-primary hover:text-primary-foreground transition-colors"
+                    className="font-body text-[11px] md:text-xs tracking-wide border border-primary/30 text-primary px-5 py-2 rounded-sm hover:bg-primary hover:text-primary-foreground transition-colors self-start"
                   >
                     {t({ en: "Book now", is: "Bóka núna", pl: "Zarezerwuj" })}
                   </button>
