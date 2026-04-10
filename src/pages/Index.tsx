@@ -35,6 +35,7 @@ const AppContent = () => {
       <Contact />
       <Footer />
       <DemoDialog open={open} onOpenChange={setOpen} />
+      <FloatingPhone />
     </div>
   );
 };
