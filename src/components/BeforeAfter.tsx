@@ -68,7 +68,7 @@ const MobileCard = ({ item, index, t }: { item: typeof translations.items[0]; in
     <motion.div variants={fadeInUp} className="flex gap-4 items-start">
       <button
         onClick={() => setShowAfter(!showAfter)}
-        className="relative w-28 h-28 shrink-0 rounded-sm overflow-hidden"
+        className="relative w-32 h-32 shrink-0 rounded-sm overflow-hidden"
         aria-label={t(translations.tapHint)}
       >
         <img
