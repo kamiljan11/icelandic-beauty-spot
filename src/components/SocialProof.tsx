@@ -1,8 +1,11 @@
 import { Instagram, Star, Shield, Award, Leaf } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { translations as globalTranslations } from "@/i18n/translations";
 import { fadeInUp, fadeIn, staggerContainer, viewportConfig, scaleIn } from "@/hooks/useScrollAnimation";
 import { useDemo } from "@/hooks/useDemo";
+import SteamWisp from "@/components/svg/SteamWisp";
+import MineralDots from "@/components/svg/MineralDots";
 import igProductsImg from "@/assets/ig-products.jpg";
 import igSalonImg from "@/assets/ig-salon.jpg";
 import igGeothermalImg from "@/assets/ig-geothermal.jpg";
@@ -11,8 +14,8 @@ import skincareImg from "@/assets/treatment-skincare.jpg";
 import landscapeImg from "@/assets/iceland-landscape.jpg";
 
 const translations = {
-  subtitle: { en: "Why locals love us", is: "Af hverju heimamenn elska okkur", pl: "Dlaczego lokalni nas kochają" },
-  title: { en: "A hidden gem in Reykjavík", is: "Falin perla í Reykjavík", pl: "Ukryty skarb Reykjavíku" },
+  subtitle: { en: "Word of mouth", is: "Orðspor", pl: "Z ust do ust" },
+  title: { en: "Don't take our word for it", is: "Ekki bara trúa okkur", pl: "Nie wierz nam na słowo" },
   googleRating: { en: "on Google", is: "á Google", pl: "na Google" },
   reviewCount: { en: "127 reviews", is: "127 umsagnir", pl: "127 opinii" },
   followUs: { en: "Follow us on Instagram", is: "Fylgdu okkur á Instagram", pl: "Obserwuj nas na Instagramie" },
@@ -37,10 +40,12 @@ const SocialProof = () => {
   const { showDemo } = useDemo();
 
   return (
-    <section className="py-16 md:py-32 bg-card overflow-hidden">
-      <div className="max-w-6xl mx-auto px-5 md:px-6">
+    <section id="testimonials" className="relative py-16 md:py-32 bg-card overflow-hidden">
+      <MineralDots className="text-primary" />
+      <div className="relative max-w-6xl mx-auto px-5 md:px-6">
+        {/* Header */}
         <motion.div
-          className="text-center mb-8 md:mb-16"
+          className="text-center mb-8 md:mb-12"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
@@ -52,9 +57,41 @@ const SocialProof = () => {
           <h2 className="font-display text-3xl md:text-5xl font-light text-foreground">
             {t(translations.title)}
           </h2>
+          <SteamWisp className="text-primary mx-auto mt-3 md:mt-4" />
         </motion.div>
 
-        {/* Stats & Badges - horizontal scroll on mobile */}
+        {/* Testimonials */}
+        <motion.div
+          className="flex md:grid md:grid-cols-3 gap-4 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide mb-10 md:mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          variants={staggerContainer}
+        >
+          {globalTranslations.testimonials.items.map((item, i) => (
+            <motion.div
+              key={i}
+              variants={fadeInUp}
+              className="bg-background p-6 md:p-8 rounded-sm border border-border hover:shadow-lg transition-shadow duration-300 min-w-[80vw] md:min-w-0 snap-center"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="flex gap-1 mb-3 md:mb-4">
+                {Array.from({ length: item.rating }).map((_, si) => (
+                  <Star key={si} size={12} className="fill-gold text-gold" />
+                ))}
+              </div>
+              <p className="font-body text-xs md:text-sm text-muted-foreground leading-relaxed mb-4 md:mb-6 italic">
+                "{t(item.text)}"
+              </p>
+              <p className="font-display text-sm md:text-base font-medium text-foreground">
+                {item.name}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Stats & Badges */}
         <motion.div
           className="flex flex-col md:flex-row gap-6 md:gap-16 items-center justify-center mb-10 md:mb-16"
           initial="hidden"
@@ -62,7 +99,7 @@ const SocialProof = () => {
           viewport={viewportConfig}
           variants={staggerContainer}
         >
-          <motion.div variants={scaleIn} className="text-center min-w-[28vw] md:min-w-0 snap-center">
+          <motion.div variants={scaleIn} className="text-center">
             <div className="flex items-center justify-center gap-0.5 md:gap-1 mb-1 md:mb-2">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} size={14} className={`${i < 4 ? "fill-gold text-gold" : "fill-gold/60 text-gold/60"} md:w-[18px] md:h-[18px]`} />
@@ -75,23 +112,23 @@ const SocialProof = () => {
           <div className="hidden md:block w-px h-16 bg-border" />
 
           <div className="flex flex-wrap justify-center gap-4 md:gap-12">
-          {translations.badges.map((badge, i) => {
-            const Icon = badge.icon;
-            return (
-              <motion.div key={i} variants={scaleIn} className="flex items-center gap-2 md:gap-3">
-                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <Icon size={14} className="text-primary md:w-[18px] md:h-[18px]" />
-                </div>
-                <span className="font-body text-xs md:text-sm font-semibold text-foreground whitespace-nowrap">
-                  {t(badge.label)}
-                </span>
-              </motion.div>
-            );
-          })}
+            {translations.badges.map((badge, i) => {
+              const Icon = badge.icon;
+              return (
+                <motion.div key={i} variants={scaleIn} className="flex items-center gap-2 md:gap-3">
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <Icon size={14} className="text-primary md:w-[18px] md:h-[18px]" />
+                  </div>
+                  <span className="font-body text-xs md:text-sm font-semibold text-foreground whitespace-nowrap">
+                    {t(badge.label)}
+                  </span>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
 
-        {/* Instagram Grid - 2 cols on mobile */}
+        {/* Instagram Grid */}
         <motion.div initial="hidden" whileInView="visible" viewport={viewportConfig} variants={fadeIn}>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-1.5 md:gap-2">
             {igImages.map((img, i) => (

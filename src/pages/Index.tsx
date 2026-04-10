@@ -10,7 +10,6 @@ import Team from "@/components/Team";
 import BeforeAfter from "@/components/BeforeAfter";
 import Pricing from "@/components/Pricing";
 import GiftCards from "@/components/GiftCards";
-import Testimonials from "@/components/Testimonials";
 import SocialProof from "@/components/SocialProof";
 import FAQ from "@/components/FAQ";
 import Booking from "@/components/Booking";
@@ -29,7 +28,6 @@ const AppContent = () => {
       <BeforeAfter />
       <Pricing />
       <GiftCards />
-      <Testimonials />
       <SocialProof />
       <FAQ />
       <Booking />
