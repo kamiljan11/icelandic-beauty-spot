@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
+import SteamWisp from "@/components/svg/SteamWisp";
 
 const Testimonials = () => {
   const { t } = useLanguage();
@@ -23,6 +24,7 @@ const Testimonials = () => {
           <h2 className="font-display text-3xl md:text-5xl font-light text-foreground">
             {t(translations.testimonials.title)}
           </h2>
+          <SteamWisp className="text-primary mx-auto mt-3 md:mt-4" />
         </motion.div>
 
         {/* Mobile: horizontal scroll, Desktop: grid */}
