@@ -4,6 +4,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { fadeInUp, slideInLeft, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
 import LeafAccent from "@/components/svg/LeafAccent";
+import TopoLines from "@/components/svg/TopoLines";
 
 const About = () => {
   const { t } = useLanguage();
@@ -14,8 +15,9 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-16 md:py-32 bg-card">
-      <div className="max-w-6xl mx-auto px-5 md:px-6">
+    <section id="about" className="relative py-16 md:py-32 bg-card overflow-hidden">
+      <TopoLines className="text-primary" />
+      <div className="relative max-w-6xl mx-auto px-5 md:px-6">
         <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
           <motion.div
             className="overflow-hidden rounded-sm"

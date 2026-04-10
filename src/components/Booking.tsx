@@ -6,6 +6,7 @@ import { translations } from "@/i18n/translations";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
 import { useDemo } from "@/hooks/useDemo";
 import { useBooking } from "@/hooks/useBooking";
+import SteamBackground from "@/components/svg/SteamBackground";
 
 const ctaTranslations = {
   subtitle: { en: "YOUR SKIN DESERVES ICELAND", is: "HÚÐIN ÞÍN VERÐSKULDAR ÍSLAND", pl: "TWOJA SKÓRA ZASŁUGUJE NA ISLANDIĘ" },
@@ -54,8 +55,9 @@ const Booking = () => {
   }, [selectedService, treatmentOptions]);
 
   return (
-    <section id="booking" className="bg-volcanic py-14 md:py-28 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-5 md:px-6">
+    <section id="booking" className="relative bg-volcanic py-14 md:py-28 overflow-hidden">
+      <SteamBackground className="text-cream" />
+      <div className="relative max-w-6xl mx-auto px-5 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
           {/* Left: CTA content */}
           <motion.div

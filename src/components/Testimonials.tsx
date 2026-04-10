@@ -4,13 +4,15 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
 import SteamWisp from "@/components/svg/SteamWisp";
+import MineralDots from "@/components/svg/MineralDots";
 
 const Testimonials = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="testimonials" className="py-16 md:py-32 bg-card">
-      <div className="max-w-6xl mx-auto px-5 md:px-6">
+    <section id="testimonials" className="relative py-16 md:py-32 bg-card overflow-hidden">
+      <MineralDots className="text-primary" />
+      <div className="relative max-w-6xl mx-auto px-5 md:px-6">
         <motion.div
           className="text-center mb-8 md:mb-16"
           initial="hidden"
