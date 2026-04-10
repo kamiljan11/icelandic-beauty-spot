@@ -55,9 +55,9 @@ const Hero = () => {
             <br />
             <span className="italic font-light">{t(translations.hero.title2)}</span>
           </motion.h1>
-          <motion.div variants={fadeInUp}>
-            <SteamWisp className="text-cream/40 mb-4 md:mb-6" />
-          </motion.h1>
+          <motion.div variants={fadeInUp} className="mb-4 md:mb-6">
+            <SteamWisp className="text-cream/40" />
+          </motion.div>
           <motion.p
             variants={fadeInUp}
             className="font-body text-sm md:text-base text-cream/80 leading-relaxed max-w-md mb-8 md:mb-10"
