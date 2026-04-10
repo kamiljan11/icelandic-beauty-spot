@@ -4,9 +4,11 @@ import heroImage from "@/assets/hero-spa.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { fadeInUp, staggerContainer } from "@/hooks/useScrollAnimation";
+import { useDemo } from "@/hooks/useDemo";
 
 const Hero = () => {
   const { t } = useLanguage();
+  const { showDemo } = useDemo();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -59,12 +61,12 @@ const Hero = () => {
             {t(translations.hero.description)}
           </motion.p>
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3 md:gap-4">
-            <a
-              href="#booking"
+            <button
+              onClick={showDemo}
               className="bg-primary text-primary-foreground px-8 py-3 md:py-3.5 rounded-sm font-body text-sm tracking-wide hover:opacity-90 transition-opacity text-center"
             >
               {t(translations.hero.cta)}
-            </a>
+            </button>
             <a
               href="#services"
               className="border border-cream/30 text-cream px-8 py-3 md:py-3.5 rounded-sm font-body text-sm tracking-wide hover:bg-cream/10 transition-colors text-center"

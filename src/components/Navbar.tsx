@@ -3,12 +3,14 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
+import { useDemo } from "@/hooks/useDemo";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { t } = useLanguage();
+  const { showDemo } = useDemo();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -16,7 +18,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -67,12 +68,12 @@ const Navbar = () => {
             </a>
           ))}
           <LanguageSwitcher />
-          <a
-            href="#booking"
+          <button
+            onClick={showDemo}
             className="bg-primary text-primary-foreground px-5 py-2 rounded-sm text-sm font-body tracking-wide hover:opacity-90 transition-opacity"
           >
             {t(translations.nav.bookNow)}
-          </a>
+          </button>
         </div>
 
         <button
@@ -108,13 +109,12 @@ const Navbar = () => {
             <div className="py-4">
               <LanguageSwitcher />
             </div>
-            <a
-              href="#booking"
-              onClick={() => setIsOpen(false)}
+            <button
+              onClick={() => { setIsOpen(false); showDemo(); }}
               className="block bg-primary text-primary-foreground px-5 py-3 rounded-sm text-sm text-center font-body tracking-wide mt-auto"
             >
               {t(translations.nav.bookNow)}
-            </a>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

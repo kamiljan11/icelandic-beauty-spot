@@ -1,4 +1,6 @@
 import { LanguageProvider } from "@/i18n/LanguageContext";
+import { DemoProvider, useDemo } from "@/hooks/useDemo";
+import DemoDialog from "@/components/DemoDialog";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
@@ -16,27 +18,37 @@ import Contact from "@/components/Contact";
 import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
 
+const AppContent = () => {
+  const { open, setOpen } = useDemo();
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <Hero />
+      <Services />
+      <Ingredients />
+      <About />
+      <Team />
+      <BeforeAfter />
+      <Pricing />
+      <GiftCards />
+      <Testimonials />
+      <SocialProof />
+      <FAQ />
+      <Booking />
+      <Contact />
+      <CtaBanner />
+      <Footer />
+      <DemoDialog open={open} onOpenChange={setOpen} />
+    </div>
+  );
+};
+
 const Index = () => {
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-background">
-        <Navbar />
-        <Hero />
-        <Services />
-        <Ingredients />
-        <About />
-        <Team />
-        <BeforeAfter />
-        <Pricing />
-        <GiftCards />
-        <Testimonials />
-        <SocialProof />
-        <FAQ />
-        <Booking />
-        <Contact />
-        <CtaBanner />
-        <Footer />
-      </div>
+      <DemoProvider>
+        <AppContent />
+      </DemoProvider>
     </LanguageProvider>
   );
 };

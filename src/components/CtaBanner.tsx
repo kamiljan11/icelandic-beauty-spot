@@ -2,6 +2,7 @@ import { Globe, Camera, BarChart3, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
+import { useDemo } from "@/hooks/useDemo";
 
 const translations = {
   subtitle: { en: "ELDFJALL BEAUTY", is: "ELDFJALL BEAUTY", pl: "ELDFJALL BEAUTY" },
@@ -29,6 +30,7 @@ const translations = {
 
 const CtaBanner = () => {
   const { t } = useLanguage();
+  const { showDemo } = useDemo();
 
   return (
     <section className="bg-volcanic py-14 md:py-28 overflow-hidden">
@@ -52,7 +54,6 @@ const CtaBanner = () => {
           {t(translations.description)}
         </motion.p>
 
-        {/* Features - 2x2 grid on mobile */}
         <motion.div variants={fadeInUp} className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-4 md:gap-12 mb-8 md:mb-14">
           {translations.features.map((feat, i) => (
             <div key={i} className="flex items-center gap-2 text-cream/70 justify-center md:justify-start">
@@ -63,13 +64,13 @@ const CtaBanner = () => {
         </motion.div>
 
         <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-6 md:mb-8">
-          <a
-            href="#booking"
+          <button
+            onClick={showDemo}
             className="bg-gold text-volcanic px-10 md:px-12 py-3.5 md:py-4 font-body text-xs md:text-sm tracking-[0.2em] font-semibold hover:opacity-90 transition-opacity inline-flex items-center gap-3"
           >
             {t(translations.cta)}
             <span aria-hidden>→</span>
-          </a>
+          </button>
           <p className="font-body text-xs md:text-sm text-cream/60">{t(translations.price)}</p>
         </motion.div>
 
