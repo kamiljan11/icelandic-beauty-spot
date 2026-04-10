@@ -56,7 +56,7 @@ const SocialProof = () => {
 
         {/* Stats & Badges - horizontal scroll on mobile */}
         <motion.div
-          className="flex gap-6 md:gap-16 items-center justify-start md:justify-center mb-10 md:mb-16 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-2 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide"
+          className="flex flex-col md:flex-row gap-6 md:gap-16 items-center justify-center mb-10 md:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
@@ -74,10 +74,11 @@ const SocialProof = () => {
 
           <div className="hidden md:block w-px h-16 bg-border" />
 
+          <div className="flex flex-wrap justify-center gap-4 md:gap-12">
           {translations.badges.map((badge, i) => {
             const Icon = badge.icon;
             return (
-              <motion.div key={i} variants={scaleIn} className="flex items-center gap-2 md:gap-3 min-w-fit snap-center">
+              <motion.div key={i} variants={scaleIn} className="flex items-center gap-2 md:gap-3">
                 <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                   <Icon size={14} className="text-primary md:w-[18px] md:h-[18px]" />
                 </div>
@@ -87,6 +88,7 @@ const SocialProof = () => {
               </motion.div>
             );
           })}
+          </div>
         </motion.div>
 
         {/* Instagram Grid - 2 cols on mobile */}
