@@ -8,8 +8,8 @@ import afterNailsImg from "@/assets/after-nails.jpg";
 import beforeNailsImg from "@/assets/before-nails.jpg";
 import beforeBodyImg from "@/assets/before-body.jpg";
 import afterBodyImg from "@/assets/after-body.jpg";
-import beforeSkincareImg from "@/assets/before-skincare.jpg";
-import afterSkincareImg from "@/assets/after-skincare.jpg";
+import beforeMakeupImg from "@/assets/before-makeup.jpg";
+import afterMakeupImg from "@/assets/after-makeup.jpg";
 
 const translations = {
   subtitle: { en: "Results", is: "Árangur", pl: "Rezultaty" },
@@ -36,14 +36,14 @@ const translations = {
       after: afterNailsImg,
     },
     {
-      title: { en: "Brow Sculpting", is: "Augabrúnamótun", pl: "Modelowanie brwi" },
+      title: { en: "Occasion Makeup", is: "Makeup fyrir tilefni", pl: "Makijaż okolicznościowy" },
       description: {
-        en: "Precision shaping and tinting for perfectly defined brows",
-        is: "Nákvæm mótun og litun fyrir fullkomlega skilgreindar augabrúnir",
-        pl: "Precyzyjne modelowanie i koloryzacja dla idealnie zdefiniowanych brwi",
+        en: "From bare skin to event-ready — natural glow with warm tones",
+        is: "Frá hreinni húð til viðburðar — náttúruleg birta með hlýjum litum",
+        pl: "Od czystej skóry do gotowej na wyjście — naturalny blask w ciepłych tonach",
       },
-      before: beforeBodyImg,
-      after: afterBodyImg,
+      before: beforeMakeupImg,
+      after: afterMakeupImg,
     },
     {
       title: { en: "Lash Lift & Tint", is: "Augnahárslyfta og litun", pl: "Lifting i koloryzacja rzęs" },
@@ -52,8 +52,8 @@ const translations = {
         is: "Náttúruleg augnahársmeðferð fyrir opið og lyft útlit",
         pl: "Naturalne podkreślenie rzęs dla otwartego, uniesionego spojrzenia",
       },
-      before: beforeSkincareImg,
-      after: afterSkincareImg,
+      before: beforeBodyImg,
+      after: afterBodyImg,
     },
   ],
 };
