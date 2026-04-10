@@ -46,7 +46,6 @@ const About = () => {
                 {t(translations.about.subtitle)}
               </p>
             </motion.div>
-            </motion.p>
             <motion.h2 variants={fadeInUp} className="font-display text-3xl md:text-5xl font-light text-foreground mb-4 md:mb-6">
               {t(translations.about.title1)}
               <br />
