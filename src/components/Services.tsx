@@ -11,6 +11,8 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/hooks/useScrollAnimation";
 import { useBooking } from "@/hooks/useBooking";
+import VolcanicDivider from "@/components/svg/VolcanicDivider";
+import HotSpring from "@/components/svg/HotSpring";
 
 const icons = [Sparkles, Droplets, Leaf];
 const images = [skincareImg, salonImg, skincareProductsImg];
@@ -73,11 +75,13 @@ const Services = () => {
             viewport={viewportConfig}
             variants={fadeInUp}
           >
+            <VolcanicDivider className="text-primary mx-auto mb-3 md:mb-4" />
             <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-primary mb-2 md:mb-3">
               {t(translations.services.subtitle)}
             </p>
             <h2 className="font-display text-3xl md:text-5xl font-light text-foreground">
               {t(translations.services.title)}
+            </h2>
             </h2>
           </motion.div>
 
