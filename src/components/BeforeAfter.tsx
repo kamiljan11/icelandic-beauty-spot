@@ -146,6 +146,12 @@ const BeforeAfter = () => {
             );
           })}
         </motion.div>
+
+        <div className="flex justify-center gap-1.5 mt-3 md:hidden">
+          {translations.items.map((_, i) => (
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-primary/30" />
+          ))}
+        </div>
       </div>
     </section>
   );
