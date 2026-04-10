@@ -8,6 +8,7 @@ import { useBooking } from "@/hooks/useBooking";
 const Pricing = () => {
   const { t } = useLanguage();
   const { bookService } = useBooking();
+  const [activeTab, setActiveTab] = useState(0);
   const categories = translations.pricing.categories;
   const packages = translations.pricing.packages;
   const totalTabs = categories.length + 1;
