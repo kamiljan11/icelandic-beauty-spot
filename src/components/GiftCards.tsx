@@ -36,27 +36,6 @@ const translations = {
       },
     ],
   },
-  packages: {
-    title: { en: "Seasonal Packages", is: "Árstíðapakkar", pl: "Pakiety sezonowe" },
-    items: [
-      {
-        name: { en: "Winter Glow Package", is: "Vetrarljómi pakki", pl: "Pakiet Zimowy Blask" },
-        price: "34.900 kr.",
-        original: "42.600 kr.",
-        description: { en: "Hot stone massage + Geothermal facial + Icelandic salt scrub", is: "Heitt steinanudd + Jarðhita andlitsmeðferð + Íslenskt saltskrúbb", pl: "Masaż gorącymi kamieniami + Zabieg geotermalny + Peeling solny" },
-        icon: Snowflake,
-        tag: { en: "Save 18%", is: "Sparaðu 18%", pl: "Oszczędź 18%" },
-      },
-      {
-        name: { en: "Midnight Sun Ritual", is: "Miðnætursólarhelgi", pl: "Rytuał Północnego Słońca" },
-        price: "44.900 kr.",
-        original: "56.700 kr.",
-        description: { en: "Full body treatment + Anti-aging luxury facial + Natural manicure", is: "Heildar líkamsmeðferð + Anti-aging lúxus andlitsmeðferð + Náttúruleg handleggur", pl: "Pełny zabieg na ciało + Luksusowy anti-aging + Naturalny manicure" },
-        icon: Sun,
-        tag: { en: "Save 21%", is: "Sparaðu 21%", pl: "Oszczędź 21%" },
-      },
-    ],
-  },
 };
 
 const GiftCards = () => {

@@ -107,6 +107,27 @@ export const translations = {
         ],
       },
     ],
+    packages: {
+      category: { en: "Packages", is: "Pakkar", pl: "Pakiety" },
+      items: [
+        {
+          name: { en: "Winter Glow Package", is: "Vetrarljómi pakki", pl: "Pakiet Zimowy Blask" },
+          duration: "180 min",
+          price: "34.900 kr.",
+          original: "42.600 kr.",
+          tag: { en: "Save 18%", is: "Sparaðu 18%", pl: "Oszczędź 18%" },
+          description: { en: "Hot stone massage + Geothermal facial + Icelandic salt scrub", is: "Heitt steinanudd + Jarðhita andlitsmeðferð + Íslenskt saltskrúbb", pl: "Masaż gorącymi kamieniami + Zabieg geotermalny + Peeling solny" },
+        },
+        {
+          name: { en: "Midnight Sun Ritual", is: "Miðnætursólarhelgi", pl: "Rytuał Północnego Słońca" },
+          duration: "210 min",
+          price: "44.900 kr.",
+          original: "56.700 kr.",
+          tag: { en: "Save 21%", is: "Sparaðu 21%", pl: "Oszczędź 21%" },
+          description: { en: "Full body treatment + Anti-aging luxury facial + Natural manicure", is: "Heildar líkamsmeðferð + Anti-aging lúxus andlitsmeðferð + Náttúruleg handleggur", pl: "Pełny zabieg na ciało + Luksusowy anti-aging + Naturalny manicure" },
+        },
+      ],
+    },
   },
   testimonials: {
     subtitle: { en: "Word of mouth", is: "Orðspor", pl: "Z ust do ust" },
