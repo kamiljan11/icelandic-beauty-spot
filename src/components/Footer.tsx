@@ -120,7 +120,8 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-cream/10 pt-4 md:pt-6 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
           <p className="font-body text-[10px] md:text-xs text-cream/30">
-            {t(translations.footer.rights)}
+            {t(translations.footer.rights)}{" · "}built by{" "}
+            <a href="https://kamiljan.com" target="_blank" rel="noopener noreferrer" className="text-gold/70 hover:text-gold transition-colors">Kamil Jan</a>
           </p>
           <div className="flex items-center gap-3 md:gap-4">
             <p className="font-body text-[10px] md:text-xs text-cream/20">
