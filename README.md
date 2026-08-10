@@ -1,26 +1,57 @@
-# Icelandic Beauty Portal DEMO
+# Eldfjall Beauty — Beauty Salon Demo (Icelandic)
 
-2. kosmetyczne bym tez zrobil zrob mi demo strony kosmetyczki na islandii jak by miala miec swoja strone co by potrzebowala to spelnij jej oczekiwania
+**Status:** sales demo · **Built by** [Kamil Jan](https://kamiljan.com)
 
-This project was built with [Lovable](https://lovable.dev).
+Demo site for a Reykjavík beauty salon built around treatments using Icelandic natural
+ingredients. **Written entirely in Icelandic** — for this customer segment an English demo
+would undersell the point.
 
-**Live app**: https://icelandic-beauty-spot.lovable.app
+## What this repo is — and is not
 
-## Build with Lovable
+This is a **demonstration site**, not a live business. Eldfjall Beauty is a fictional beauty salon invented
+to show a specific kind of prospective client what their own site could look and feel like,
+before they commit to anything.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/4e6828f1-d45c-4aaa-83ee-f2d681a8a6d8).
+The commercial context: [Reykjawwwik](https://reykjawwwik.is) sells small Icelandic businesses
+a designed, unique website. Sending a link beats describing a mockup, so each target trade
+gets a finished demo it can recognise itself in — a salon owner sees their own language and their own trade.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+No real customer data, no real bookings, no payment integration. Any names, prices, reviews
+and photos are placeholders.
 
-## Development
+## What it shows
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+- Treatment menu for face and body
+- Product line presentation
+- Booking enquiry flow
+- Icelandic-language copy throughout
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+## Stack
+
+React + TypeScript · Vite · React Router · Tailwind CSS · Playwright for E2E · hosted on
+Lovable. No backend — a demo has nothing to persist.
+
+## Running locally
+
+```bash
+npm install
 npm run dev
 ```
+
+```bash
+npm run lint
+npm run build
+npx playwright test
+```
+
+## How security is handled
+
+Nothing sensitive lives here by design: no backend, no database, no keys, no real personal
+data. Even so, the repo runs the same gates as the production systems in this account — each
+push triggers build, lint, typecheck, Playwright E2E, Semgrep static analysis and a Gitleaks
+secret scan, and a pre-commit hook blocks credential-shaped strings. A demo repo is exactly
+where standards quietly slip, so it does not get an exemption.
+
+## Licence
+
+Proprietary. Published for reference, not for reuse.
